@@ -628,18 +628,18 @@
   const WORKS = [
     {
       title: "Archive of Fame",
-      href:  "https://www.instagram.com/p/DR1wXkzjUMb/",
+      href:  "archive-of-fame.html",
       ser:   "OP-01",
-      kind:  "Editorial · Series",
-      tag:   "INSTAGRAM",
+      kind:  "Stop-motion · Series",
+      tag:   "05 CASES",
       year:  "2025"
     },
     {
       title: "Stories from the Streets of São Paulo",
-      href:  "https://www.instagram.com/p/DWMH1hVES3v/",
+      href:  "stories-from-sao-paulo.html",
       ser:   "OP-02",
       kind:  "Documentary · AI Film",
-      tag:   "INSTAGRAM",
+      tag:   "05 EPISODES",
       year:  "2025"
     },
     {
@@ -652,10 +652,10 @@
     },
     {
       title: "It Happened Like This",
-      href:  "https://www.instagram.com/p/DYPTDqepRRo/",
+      href:  "it-happened-like-this.html",
       ser:   "OP-04",
       kind:  "Narrative · Episodic",
-      tag:   "INSTAGRAM",
+      tag:   "03 EPISODES",
       year:  "2026"
     },
     {
@@ -697,8 +697,11 @@
       const a = document.createElement('a');
       a.className = 'item';
       a.href = w.href;
-      a.target = '_blank';
-      a.rel = 'noopener';
+      // open external links in new tab; subpages stay in-tab
+      if (/^https?:/.test(w.href)) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
       a.dataset.idx = String(i);
 
       a.innerHTML =
