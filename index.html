@@ -547,13 +547,13 @@
       <div class="row"><span>Document</span><span>Portfolio · folio-01</span></div>
       <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. A</span></div>
       <div class="row"><span>Clearance</span><span>Public release</span></div>
-      <div class="row accent-row"><span style="color:var(--ink-soft)">Status</span><span>&mdash; Currently operating</span></div>
+      <div class="row accent-row"><span style="color:var(--ink-soft)">Status</span><span>— Online</span></div>
     </div>
     <div class="col">
       <div class="row"><span>Discipline</span><span>Creative &amp; Art Direction</span></div>
       <div class="row"><span>Sub-unit</span><span>AI Filmmaking · Scriptwriting</span></div>
       <div class="row"><span>System</span><span>Storytelling × Design × Tech</span></div>
-      <div class="row"><span>Method</span><span>Continuous operation</span></div>
+      <div class="row"><span>Method</span><span>AI + creativity</span></div>
     </div>
     <div class="col">
       <div class="row"><span>Affiliation</span><span>UOL · Universo Online</span></div>
@@ -585,7 +585,7 @@
   <!-- statement bar -->
   <section class="statement">
     <div class="left">Selected works &nbsp;&mdash;&nbsp; index of <em style="color:var(--accent); font-style:normal;">06</em> entries</div>
-    <div class="mid">Built for <em>continuous operation</em></div>
+    <div class="mid">Creativity, <em>technology</em> &amp; visual arts</div>
     <div class="right">Updated · 2026.05 &nbsp;·&nbsp; São Paulo</div>
   </section>
 
@@ -596,11 +596,7 @@
       <strong>Index 06</strong>
       <span class="ops">&gt;&gt;&gt; Ops. 06</span>
     </div>
-    <button class="shuffle" type="button" aria-label="shuffle works">
-      <span class="icon">↻</span>
-      <span>Shuffle sequence</span>
-      <span class="seq" id="seq">[ 01 · 02 · 03 · 04 ]</span>
-    </button>
+    <div class="seq" id="seq">[ 01 · 02 · 03 · 04 · 05 · 06 ]</div>
   </section>
 
   <!-- PROJECT LIST -->
@@ -622,16 +618,15 @@
 <script src="fade.js"></script>
 <script>
   // ============================================================
-  // Works. Add a new entry here and it will be picked up by the
-  // shuffle system automatically.
+  // Works — fixed order, curated by hand.
   // ============================================================
   const WORKS = [
     {
-      title: "Archive of Fame",
-      href:  "archive-of-fame.html",
+      title: "UOL 30 Years",
+      href:  "uol-30-years.html",
       ser:   "OP-01",
-      kind:  "Stop-motion · Series",
-      tag:   "05 CASES",
+      kind:  "Brand Film · Anniversary",
+      tag:   "CAMPAIGN",
       year:  "2025"
     },
     {
@@ -643,20 +638,20 @@
       year:  "2025"
     },
     {
-      title: "UOL 30 Years",
-      href:  "uol-30-years.html",
-      ser:   "OP-03",
-      kind:  "Brand Film · Anniversary",
-      tag:   "CAMPAIGN",
-      year:  "2025"
-    },
-    {
       title: "It Happened Like This",
       href:  "it-happened-like-this.html",
-      ser:   "OP-04",
+      ser:   "OP-03",
       kind:  "Narrative · Episodic",
       tag:   "03 EPISODES",
       year:  "2026"
+    },
+    {
+      title: "Archive of Fame",
+      href:  "archive-of-fame.html",
+      ser:   "OP-04",
+      kind:  "Stop-motion · Series",
+      tag:   "05 CASES",
+      year:  "2025"
     },
     {
       title: "LuscoFilms",
@@ -677,130 +672,41 @@
   ];
 
   const list = document.getElementById('list');
-  const seqEl = document.getElementById('seq');
-
-  // initial shuffled order (Fisher–Yates on a copy)
-  const order = WORKS.slice();
-  for (let i = order.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [order[i], order[j]] = [order[j], order[i]];
-  }
 
   function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
-  function render(arr) {
-    list.innerHTML = '';
-    arr.forEach((w, i) => {
-      const wrap = document.createElement('div');
-      wrap.className = 'item-wrap';
+  WORKS.forEach((w, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'item-wrap';
 
-      const a = document.createElement('a');
-      a.className = 'item';
-      a.href = w.href;
-      // open external links in new tab; subpages stay in-tab
-      if (/^https?:/.test(w.href)) {
-        a.target = '_blank';
-        a.rel = 'noopener';
-      }
-      a.dataset.idx = String(i);
-
-      a.innerHTML =
-        '<div class="col-idx">' +
-          '<div>' +
-            '<div class="num">' + pad2(i + 1) + '</div>' +
-            '<div class="ser"><span>' + w.ser + '</span></div>' +
-          '</div>' +
-          '<div class="ser" style="margin-top:auto">FOLIO/' + pad2(i + 1) + '</div>' +
-        '</div>' +
-        '<div class="col-main">' +
-          '<div class="title">' + w.title + '</div>' +
-          '<div class="sub">' + w.kind + ' &nbsp;<span class="accent">//</span>&nbsp; ' + w.tag + ' &nbsp;·&nbsp; view release</div>' +
-        '</div>' +
-        '<div class="col-meta">' +
-          '<span class="tag">' + w.tag + '</span>' +
-          '<span class="yr">' + w.year + '</span>' +
-          '<span class="ext">View &nbsp;<span class="arr">&gt;&gt;</span></span>' +
-        '</div>';
-
-      wrap.appendChild(a);
-      list.appendChild(wrap);
-    });
-    updateSeq(arr);
-  }
-
-  function updateSeq(arr) {
-    // show original serial sequence in current order
-    const serials = arr.map(w => w.ser.replace('OP-', ''));
-    seqEl.textContent = '[ ' + serials.join(' · ') + ' ]';
-  }
-
-  render(order);
-
-  // SHUFFLE with FLIP animation -------------------------------
-  const shuffleBtn = document.querySelector('.shuffle');
-  shuffleBtn.addEventListener('click', () => {
-    shuffleBtn.classList.add('spinning');
-
-    const wraps = [...list.querySelectorAll('.item-wrap')];
-
-    // FIRST — record current positions
-    const firstRects = new Map();
-    wraps.forEach(w => firstRects.set(w, w.getBoundingClientRect()));
-
-    // shuffle the underlying order array (keep our model in sync with DOM)
-    for (let i = order.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [order[i], order[j]] = [order[j], order[i]];
+    const a = document.createElement('a');
+    a.className = 'item';
+    a.href = w.href;
+    if (/^https?:/.test(w.href)) {
+      a.target = '_blank';
+      a.rel = 'noopener';
     }
 
-    // re-render with new order — but BEFORE applying transforms,
-    // capture LAST rects for the matching elements by data-idx of the
-    // new render position.
-    render(order);
-    const newWraps = [...list.querySelectorAll('.item-wrap')];
+    a.innerHTML =
+      '<div class="col-idx">' +
+        '<div>' +
+          '<div class="num">' + pad2(i + 1) + '</div>' +
+          '<div class="ser"><span>' + w.ser + '</span></div>' +
+        '</div>' +
+        '<div class="ser" style="margin-top:auto">FOLIO/' + pad2(i + 1) + '</div>' +
+      '</div>' +
+      '<div class="col-main">' +
+        '<div class="title">' + w.title + '</div>' +
+        '<div class="sub">' + w.kind + ' &nbsp;<span class="accent">//</span>&nbsp; ' + w.tag + ' &nbsp;·&nbsp; view release</div>' +
+      '</div>' +
+      '<div class="col-meta">' +
+        '<span class="tag">' + w.tag + '</span>' +
+        '<span class="yr">' + w.year + '</span>' +
+        '<span class="ext">View &nbsp;<span class="arr">&gt;&gt;</span></span>' +
+      '</div>';
 
-    // To FLIP, we need correspondence between old & new wraps. Use the
-    // work serial as a stable id.
-    // Build map: serial -> old rect.
-    const serialFirstRect = new Map();
-    wraps.forEach(oldW => {
-      const t = oldW.querySelector('.ser span');
-      if (t) serialFirstRect.set(t.textContent.trim(), firstRects.get(oldW));
-    });
-
-    newWraps.forEach((nw, i) => {
-      const serial = nw.querySelector('.ser span').textContent.trim();
-      const first = serialFirstRect.get(serial);
-      const last  = nw.getBoundingClientRect();
-      if (!first) return;
-      const dy = first.top - last.top;
-      const dx = first.left - last.left;
-
-      nw.style.transition = 'none';
-      nw.style.transform  = 'translate(' + dx + 'px, ' + dy + 'px)';
-      void nw.offsetWidth;
-      nw.style.transition = 'transform 700ms cubic-bezier(.4,0,.2,1)';
-      nw.style.transform  = 'translate(0, 0)';
-
-      // glitch burst on the title during recalibration
-      const item = nw.querySelector('.item');
-      let bursts = 2;
-      const burst = () => {
-        item.classList.remove('glitching');
-        void item.offsetWidth;
-        item.classList.add('glitching');
-        if (--bursts > 0) setTimeout(burst, 160);
-      };
-      setTimeout(burst, i * 70);
-    });
-
-    setTimeout(() => {
-      shuffleBtn.classList.remove('spinning');
-      newWraps.forEach(w => {
-        w.style.transition = '';
-        w.style.transform  = '';
-      });
-    }, 820);
+    wrap.appendChild(a);
+    list.appendChild(wrap);
   });
 </script>
 </body>
