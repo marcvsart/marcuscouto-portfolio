@@ -205,6 +205,7 @@
     text-align: center;
   }
   .ident .name {
+    position: relative;
     font-family: var(--grotesk);
     font-weight: 700;
     font-size: clamp(48px, 8vw, 104px);
@@ -213,13 +214,7 @@
     color: var(--ink);
     text-transform: uppercase;
     margin: 0;
-    cursor: crosshair;
-  }
-  .ident .name:hover {
-    animation: glitch 240ms steps(2, end);
-    text-shadow:
-      -2px 0 rgba(15, 98, 254, 0.65),
-      2px 0 rgba(16, 36, 58, 0.45);
+    cursor: default;
   }
 
   /* technical dimension line under the name ------------------- */
@@ -351,7 +346,7 @@
     font-size: 11px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    cursor: crosshair;
+    cursor: pointer;
     padding: 10px 18px;
     transition: color .25s, border-color .25s, background .25s, letter-spacing .35s;
     display: inline-flex;
@@ -396,7 +391,7 @@
     border-bottom: 1px solid var(--rule);
     text-decoration: none;
     color: inherit;
-    cursor: crosshair;
+    cursor: pointer;
     transition: background .28s ease, padding-left .35s ease;
   }
   .item::before {
@@ -553,20 +548,9 @@
   .foot .right { text-align: right; }
   .foot .lead { color: var(--ink-2); }
 
-  /* corner crosshairs (decoration) */
-  .crosshair {
-    position: absolute;
-    width: 14px; height: 14px;
-    color: var(--ink-soft);
-    opacity: 0.55;
-    font-size: 14px;
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-  }
-
   /* doto (dot-matrix) tuning ---------------------------------- */
   .ident .name {
+    position: relative;
     font-weight: 900;
     line-height: 1.02;
     letter-spacing: 0.01em;
@@ -631,7 +615,7 @@
   <section class="doc-meta" id="index">
     <div class="col">
       <div class="row"><span>Document</span><span>Portfolio · folio-01</span></div>
-      <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. C</span></div>
+      <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. D</span></div>
       <div class="row"><span>Clearance</span><span>Public release</span></div>
       <div class="row accent-row"><span style="color:var(--ink-soft)">Status</span><span>— Online</span></div>
     </div>
@@ -656,7 +640,7 @@
       <span class="arrows">&gt;&gt;&gt;</span>
     </div>
     <div class="name-block">
-      <h1 class="name">Marcus Couto</h1>
+      <h1 class="name" data-defrag="canvas">Marcus Couto</h1>
       <div class="dim" aria-hidden="true"><span class="dim-lbl">Scale 1:1 · Tol ±0.20</span></div>
       <div class="role">
         Creative &amp; Art Director &nbsp;·&nbsp; <em>AI Filmmaker &amp; Scriptwriter</em> &nbsp;·&nbsp; Storytelling × Design × Tech
@@ -783,7 +767,7 @@
         '<div class="ser" style="margin-top:auto">FOLIO/' + pad2(i + 1) + '</div>' +
       '</div>' +
       '<div class="col-main">' +
-        '<div class="title">' + w.title + '</div>' +
+        '<div class="title" data-defrag="letters">' + w.title + '</div>' +
         '<div class="sub">' + w.kind + ' &nbsp;<span class="accent">//</span>&nbsp; ' + w.tag + ' &nbsp;·&nbsp; view release</div>' +
       '</div>' +
       '<div class="col-meta">' +
@@ -796,5 +780,6 @@
     list.appendChild(wrap);
   });
 </script>
+<script src="defrag.js"></script>
 </body>
 </html>

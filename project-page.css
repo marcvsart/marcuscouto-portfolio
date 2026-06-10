@@ -183,7 +183,7 @@ body.leaving { opacity: 0; }
   text-transform: uppercase;
   margin: 0;
   text-wrap: balance;
-  cursor: crosshair;
+  cursor: pointer;
 }
 .proj-head h1:hover {
   animation: pp-glitch 240ms steps(2, end);
@@ -339,7 +339,7 @@ body.leaving { opacity: 0; }
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
-  cursor: crosshair;
+  cursor: pointer;
   transition: background .28s ease, padding-left .35s ease;
 }
 .item::before {
