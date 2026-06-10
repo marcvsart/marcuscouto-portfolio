@@ -1,9 +1,18 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marcus Couto — Portfolio</title>
+<title>Marcus Couto — Creative & Art Director · AI Filmmaker</title>
+<meta name="description" content="Portfolio of Marcus Couto — Creative & Art Director, AI Filmmaker & Scriptwriter. Storytelling × Design × Technology. São Paulo, Brazil.">
+<meta name="theme-color" content="#EEF1F3">
+<link rel="canonical" href="https://marcuscouto.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marcuscouto.com/">
+<meta property="og:title" content="Marcus Couto — Creative & Art Director · AI Filmmaker">
+<meta property="og:description" content="Selected works in AI filmmaking, art direction and storytelling. UOL 30 Years, Stories from the Streets of São Paulo, LuscoFilms and more.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -204,6 +213,55 @@
     color: var(--ink);
     text-transform: uppercase;
     margin: 0;
+    cursor: crosshair;
+  }
+  .ident .name:hover {
+    animation: glitch 240ms steps(2, end);
+    text-shadow:
+      -2px 0 rgba(232, 90, 43, 0.65),
+      2px 0 rgba(27, 46, 63, 0.45);
+  }
+
+  /* technical dimension line under the name ------------------- */
+  .dim {
+    position: relative;
+    margin: 22px auto 0;
+    max-width: 560px;
+    height: 1px;
+    background: var(--accent);
+    transform-origin: center;
+    animation: dim-draw 900ms cubic-bezier(.6, 0, .2, 1) 350ms both;
+  }
+  .dim::before, .dim::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 7px; height: 7px;
+    border-left: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
+  .dim::before { left: 0;  transform: translateY(-50%) rotate(45deg); }
+  .dim::after  { right: 0; transform: translateY(-50%) rotate(225deg); }
+  .dim .dim-lbl {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg);
+    padding: 0 14px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    animation: dim-lbl 400ms ease 1100ms both;
+  }
+  @keyframes dim-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes dim-lbl  { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dim, .dim .dim-lbl { animation: none; }
+    .ident .name:hover { animation: none; }
   }
   .ident .role {
     font-family: var(--mono);
@@ -333,12 +391,13 @@
     grid-template-columns: 80px 1fr auto;
     align-items: stretch;
     gap: 24px;
-    padding: 36px 0 32px;
+    padding: 36px 28px 32px;
+    margin: 0 -28px;
     border-bottom: 1px solid var(--rule);
     text-decoration: none;
     color: inherit;
     cursor: crosshair;
-    transition: background .3s ease, padding-left .35s ease;
+    transition: background .28s ease, padding-left .35s ease;
   }
   .item::before {
     /* hover wash on the left */
@@ -348,9 +407,21 @@
     width: 0;
     background: var(--accent);
     transition: width .35s cubic-bezier(.4,0,.2,1);
+    z-index: 1;
   }
-  .item:hover { padding-left: 28px; }
-  .item:hover::before { width: 4px; }
+  .item:hover {
+    padding-left: 52px;
+    background: var(--ink);
+  }
+  .item:hover::before { width: 6px; }
+
+  /* selected-layer state: every channel flips */
+  .item:hover .num   { color: var(--accent); }
+  .item:hover .ser   { color: rgba(238, 241, 243, 0.55); }
+  .item:hover .sub   { color: rgba(238, 241, 243, 0.65); }
+  .item:hover .col-meta { color: rgba(238, 241, 243, 0.55); }
+  .item:hover .col-meta .tag { color: var(--bg); border-color: rgba(238, 241, 243, 0.4); }
+  .item:hover .col-meta .yr  { color: rgba(238, 241, 243, 0.85); }
 
   /* col 1: index + frame */
   .item .col-idx {
@@ -407,10 +478,10 @@
   .item .sub .accent { color: var(--accent); }
 
   .item:hover .title {
-    color: var(--ink);
+    color: var(--bg);
     text-shadow:
-      -1.2px 0 rgba(232, 90, 43, 0.6),
-      1.2px 0 rgba(27, 46, 63, 0.45);
+      -1.6px 0 rgba(232, 90, 43, 0.85),
+      1.6px 0 rgba(111, 143, 163, 0.55);
   }
 
   /* col 3: meta / external indicator */
@@ -439,7 +510,7 @@
     color: var(--ink-2);
     transition: color .25s, transform .25s;
   }
-  .item:hover .col-meta .ext { color: var(--accent); transform: translateX(4px); }
+  .item:hover .col-meta .ext { color: var(--accent-2); transform: translateX(4px); }
   .item .col-meta .ext .arr { font-size: 14px; letter-spacing: 0; }
 
   .item .col-meta .yr {
@@ -499,12 +570,15 @@
     .shell { padding: 24px 22px 48px; }
     .topbar { grid-template-columns: 1fr auto; }
     .topnav { display: none; }
+    .topcode { font-size: 18px; gap: 10px; }
+    .topcode .bar { width: 28px; height: 3px; }
     .doc-meta { grid-template-columns: 1fr; gap: 18px; }
     .ident { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; }
     .ident .plus-rail, .ident .corner-code { display: none; }
     .statement { grid-template-columns: 1fr; text-align: left; }
     .statement .mid, .statement .right { text-align: left; }
-    .item { grid-template-columns: 56px 1fr; gap: 14px; padding: 24px 0; }
+    .item { grid-template-columns: 56px 1fr; gap: 14px; padding: 24px 22px; margin: 0 -22px; }
+    .item:hover { padding-left: 34px; }
     .item .col-meta { display: none; }
     .item .num { font-size: 28px; }
     .item .title { font-size: 32px; }
@@ -545,7 +619,7 @@
   <section class="doc-meta" id="index">
     <div class="col">
       <div class="row"><span>Document</span><span>Portfolio · folio-01</span></div>
-      <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. A</span></div>
+      <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. B</span></div>
       <div class="row"><span>Clearance</span><span>Public release</span></div>
       <div class="row accent-row"><span style="color:var(--ink-soft)">Status</span><span>— Online</span></div>
     </div>
@@ -571,6 +645,7 @@
     </div>
     <div class="name-block">
       <h1 class="name">Marcus Couto</h1>
+      <div class="dim" aria-hidden="true"><span class="dim-lbl">Scale 1:1 · Tol ±0.20</span></div>
       <div class="role">
         Creative &amp; Art Director &nbsp;·&nbsp; <em>AI Filmmaker &amp; Scriptwriter</em> &nbsp;·&nbsp; Storytelling × Design × Tech
       </div>
@@ -578,7 +653,7 @@
     <div class="corner-code">
       <span class="tag">FOLIO &mdash; 01</span>
       <span>2026 / OPS · 6</span>
-      <span>SCALE 1:1</span>
+      <span>SHEET 1 / 1</span>
     </div>
   </section>
 
@@ -586,7 +661,7 @@
   <section class="statement">
     <div class="left">Selected works &nbsp;&mdash;&nbsp; index of <em style="color:var(--accent); font-style:normal;">06</em> entries</div>
     <div class="mid">Creativity, <em>technology</em> &amp; visual arts</div>
-    <div class="right">Updated · 2026.05 &nbsp;·&nbsp; São Paulo</div>
+    <div class="right">Updated · 2026.06 &nbsp;·&nbsp; São Paulo</div>
   </section>
 
   <!-- CONTROLS -->
