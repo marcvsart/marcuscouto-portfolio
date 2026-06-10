@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marcus Couto — Creative & Art Director · AI Filmmaker</title>
 <meta name="description" content="Portfolio of Marcus Couto — Creative & Art Director, AI Filmmaker & Scriptwriter. Storytelling × Design × Technology. São Paulo, Brazil.">
-<meta name="theme-color" content="#EEF1F3">
+<meta name="theme-color" content="#EAF0F6">
 <link rel="canonical" href="https://marcuscouto.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://marcuscouto.com/">
@@ -15,24 +15,24 @@
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   /* blueprint — engineering doc aesthetic ===================== */
   :root {
-    --bg:        #EEF1F3;
-    --bg-deep:   #e2e7eb;
-    --ink:       #1B2E3F;        /* deep navy */
-    --ink-2:     #2a4055;
-    --ink-soft:  #6F8FA3;        /* mid blue-gray */
-    --rule:      rgba(27, 46, 63, 0.16);
-    --rule-soft: rgba(27, 46, 63, 0.08);
-    --rule-dashed: rgba(27, 46, 63, 0.28);
+    --bg:        #EAF0F6;
+    --bg-deep:   #dde6ef;
+    --ink:       #10243A;        /* deep navy */
+    --ink-2:     #1E3A55;
+    --ink-soft:  #6884A0;        /* mid blue-gray */
+    --rule:      rgba(16, 36, 58, 0.16);
+    --rule-soft: rgba(16, 36, 58, 0.08);
+    --rule-dashed: rgba(16, 36, 58, 0.28);
 
-    --accent:    #E85A2B;        /* signal orange */
-    --accent-2:  #F08A5D;
+    --accent:    #0F62FE;        /* signal orange */
+    --accent-2:  #4589FF;
 
-    --grotesk: "Space Grotesk", "Inter", system-ui, sans-serif;
-    --mono:    "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    --grotesk: "Doto", "IBM Plex Mono", ui-monospace, monospace;
+    --mono:    "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
   }
 
   * { box-sizing: border-box; }
@@ -57,8 +57,8 @@
     pointer-events: none;
     z-index: 0;
     background-image:
-      linear-gradient(to right, rgba(27,46,63,0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(27,46,63,0.035) 1px, transparent 1px);
+      linear-gradient(to right, rgba(16,36,58,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16,36,58,0.035) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
@@ -218,8 +218,8 @@
   .ident .name:hover {
     animation: glitch 240ms steps(2, end);
     text-shadow:
-      -2px 0 rgba(232, 90, 43, 0.65),
-      2px 0 rgba(27, 46, 63, 0.45);
+      -2px 0 rgba(15, 98, 254, 0.65),
+      2px 0 rgba(16, 36, 58, 0.45);
   }
 
   /* technical dimension line under the name ------------------- */
@@ -417,11 +417,11 @@
 
   /* selected-layer state: every channel flips */
   .item:hover .num   { color: var(--accent); }
-  .item:hover .ser   { color: rgba(238, 241, 243, 0.55); }
-  .item:hover .sub   { color: rgba(238, 241, 243, 0.65); }
-  .item:hover .col-meta { color: rgba(238, 241, 243, 0.55); }
-  .item:hover .col-meta .tag { color: var(--bg); border-color: rgba(238, 241, 243, 0.4); }
-  .item:hover .col-meta .yr  { color: rgba(238, 241, 243, 0.85); }
+  .item:hover .ser   { color: rgba(234, 240, 246, 0.55); }
+  .item:hover .sub   { color: rgba(234, 240, 246, 0.65); }
+  .item:hover .col-meta { color: rgba(234, 240, 246, 0.55); }
+  .item:hover .col-meta .tag { color: var(--bg); border-color: rgba(234, 240, 246, 0.4); }
+  .item:hover .col-meta .yr  { color: rgba(234, 240, 246, 0.85); }
 
   /* col 1: index + frame */
   .item .col-idx {
@@ -480,8 +480,8 @@
   .item:hover .title {
     color: var(--bg);
     text-shadow:
-      -1.6px 0 rgba(232, 90, 43, 0.85),
-      1.6px 0 rgba(111, 143, 163, 0.55);
+      -1.6px 0 rgba(15, 98, 254, 0.85),
+      1.6px 0 rgba(104, 132, 160, 0.55);
   }
 
   /* col 3: meta / external indicator */
@@ -527,8 +527,8 @@
   }
   @keyframes glitch {
     0%   { transform: translateX(0);   text-shadow: none; clip-path: inset(0 0 0 0); }
-    20%  { transform: translateX(-3px); text-shadow: 2px 0 var(--accent), -2px 0 rgba(27,46,63,0.6); clip-path: inset(15% 0 40% 0); }
-    40%  { transform: translateX(4px);  text-shadow: -2px 0 var(--accent), 2px 0 rgba(27,46,63,0.6); clip-path: inset(50% 0 10% 0); }
+    20%  { transform: translateX(-3px); text-shadow: 2px 0 var(--accent), -2px 0 rgba(16,36,58,0.6); clip-path: inset(15% 0 40% 0); }
+    40%  { transform: translateX(4px);  text-shadow: -2px 0 var(--accent), 2px 0 rgba(16,36,58,0.6); clip-path: inset(50% 0 10% 0); }
     60%  { transform: translateX(-2px); text-shadow: 1.5px 0 var(--accent); clip-path: inset(0 0 0 0); }
     100% { transform: translateX(0);   text-shadow: none; clip-path: inset(0 0 0 0); }
   }
@@ -564,6 +564,18 @@
     user-select: none;
     pointer-events: none;
   }
+
+  /* doto (dot-matrix) tuning ---------------------------------- */
+  .ident .name {
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+  }
+  .item .title { font-weight: 900; line-height: 1.04; }
+  .item .num   { font-weight: 900; }
+  .item .col-meta .yr { font-weight: 800; }
+  .topcode     { font-weight: 900; }
+  .brand       { font-weight: 800; font-size: 16px; }
 
   /* responsive ------------------------------------------------ */
   @media (max-width: 900px) {
@@ -619,7 +631,7 @@
   <section class="doc-meta" id="index">
     <div class="col">
       <div class="row"><span>Document</span><span>Portfolio · folio-01</span></div>
-      <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. B</span></div>
+      <div class="row"><span>Serial</span><span>MC&mdash;26 / rev. C</span></div>
       <div class="row"><span>Clearance</span><span>Public release</span></div>
       <div class="row accent-row"><span style="color:var(--ink-soft)">Status</span><span>— Online</span></div>
     </div>

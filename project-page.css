@@ -2,21 +2,21 @@
    each page overrides --accent to a different orange tone.
    ---------------------------------------------------------- */
 :root {
-  --bg:        #EEF1F3;
-  --ink:       #1B2E3F;
-  --ink-2:     #2a4055;
-  --ink-soft:  #6F8FA3;
-  --rule:      rgba(27, 46, 63, 0.16);
-  --rule-soft: rgba(27, 46, 63, 0.08);
-  --rule-dashed: rgba(27, 46, 63, 0.28);
+  --bg:        #EAF0F6;
+  --ink:       #10243A;
+  --ink-2:     #1E3A55;
+  --ink-soft:  #6884A0;
+  --rule:      rgba(16, 36, 58, 0.16);
+  --rule-soft: rgba(16, 36, 58, 0.08);
+  --rule-dashed: rgba(16, 36, 58, 0.28);
 
   /* default; pages override */
-  --accent:    #E85A2B;
-  --accent-2:  #F08A5D;
-  --accent-wash: rgba(232, 90, 43, 0.06);
+  --accent:    #0F62FE;
+  --accent-2:  #4589FF;
+  --accent-wash: rgba(15, 98, 254, 0.06);
 
-  --grotesk: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --mono:    "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+  --grotesk: "Doto", "IBM Plex Mono", ui-monospace, monospace;
+  --mono:    "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -40,8 +40,8 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background-image:
-    linear-gradient(to right, rgba(27,46,63,0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(27,46,63,0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(16,36,58,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16,36,58,0.035) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 body::after {
@@ -189,7 +189,7 @@ body.leaving { opacity: 0; }
   animation: pp-glitch 240ms steps(2, end);
   text-shadow:
     -2px 0 var(--accent-2),
-    2px 0 rgba(27, 46, 63, 0.45);
+    2px 0 rgba(16, 36, 58, 0.45);
 }
 @keyframes pp-glitch {
   0%   { transform: translateX(0); }
@@ -359,10 +359,10 @@ body.leaving { opacity: 0; }
 
 /* selected-layer state */
 .item:hover .num { color: var(--accent); }
-.item:hover .ser { color: rgba(238, 241, 243, 0.55); }
-.item:hover .sub { color: rgba(238, 241, 243, 0.65); }
-.item:hover .col-meta { color: rgba(238, 241, 243, 0.55); }
-.item:hover .col-meta .tag { color: var(--bg); border-color: rgba(238, 241, 243, 0.4); }
+.item:hover .ser { color: rgba(234, 240, 246, 0.55); }
+.item:hover .sub { color: rgba(234, 240, 246, 0.65); }
+.item:hover .col-meta { color: rgba(234, 240, 246, 0.55); }
+.item:hover .col-meta .tag { color: var(--bg); border-color: rgba(234, 240, 246, 0.4); }
 
 .item .col-idx {
   display: flex;
@@ -417,7 +417,7 @@ body.leaving { opacity: 0; }
   color: var(--bg);
   text-shadow:
     -1.6px 0 var(--accent-2),
-    1.6px 0 rgba(111, 143, 163, 0.55);
+    1.6px 0 rgba(104, 132, 160, 0.55);
 }
 
 .item .col-meta {
@@ -467,6 +467,23 @@ body.leaving { opacity: 0; }
 .foot .center { text-align: center; }
 .foot .right { text-align: right; }
 .foot .lead { color: var(--ink-2); }
+
+/* doto (dot-matrix) tuning ----------------------------- */
+.proj-head h1 { font-weight: 900; line-height: 1.02; letter-spacing: 0.01em; }
+.proj-head .right .yr { font-weight: 800; }
+.item .title { font-weight: 900; line-height: 1.06; }
+.item .num   { font-weight: 900; }
+.topcode     { font-weight: 900; }
+.brand       { font-weight: 800; font-size: 16px; }
+
+/* long-form copy stays legible: mono, not dot-matrix */
+.desc .body {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: clamp(15px, 1.35vw, 17px);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
 
 /* responsive ------------------------------------------ */
 @media (max-width: 900px) {
