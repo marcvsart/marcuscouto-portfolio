@@ -1,6 +1,7 @@
 // Preenche os números a partir de data/numeros.json.
 //   <span data-numero="grupo.chave" data-formato="extenso|curto|inteiro"></span>
 //   <p data-atualizado="grupo"></p>  → "atualizado em DD/MM/AAAA" (ou mês/ano)
+//   data-rotulo="" troca o prefixo "atualizado em " (ex.: só a data)
 (function () {
   'use strict';
   const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
@@ -41,7 +42,8 @@
       document.querySelectorAll('[data-atualizado]').forEach(node => {
         const grupo = dados[node.dataset.atualizado] || {};
         const datas = Object.values(grupo).map(item => item && item.data).filter(Boolean).sort();
-        if (datas.length) node.textContent = 'atualizado em ' + formatarData(datas[datas.length - 1]);
+        const rotulo = node.dataset.rotulo !== undefined ? node.dataset.rotulo : 'atualizado em ';
+        if (datas.length) node.textContent = rotulo + formatarData(datas[datas.length - 1]);
       });
     })
     .catch(() => {

@@ -109,6 +109,8 @@ main { display: block; }
 .stat p { margin: var(--space-1) 0 0; color: var(--ink-2); font-size: var(--fs-m); }
 .updated { margin: var(--space-2) 0 0; color: var(--ink-soft); font-size: var(--fs-xs); font-weight: 300; }
 
+.error-code { margin: 0 0 var(--space-2); font-size: var(--fs-num); line-height: 1; color: var(--accent); }
+
 /* ---- lombada: componente único de lista expansível ---- */
 .shelf { border-top: 1px solid var(--rule); }
 .lombada { border-bottom: 1px solid var(--rule); }
