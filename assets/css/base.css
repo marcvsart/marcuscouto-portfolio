@@ -105,6 +105,7 @@ main { display: block; }
 
 /* ---- números ---- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-4); margin: var(--space-4) 0 0; padding: var(--space-4) 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.section > .stats:first-child { margin-top: 0; }
 .stat .num { display: block; font-size: var(--fs-num); line-height: 1.1; color: var(--accent); }
 .stat p { margin: var(--space-1) 0 0; color: var(--ink-2); font-size: var(--fs-m); }
 .updated { margin: var(--space-2) 0 0; color: var(--ink-soft); font-size: var(--fs-xs); font-weight: 300; }
