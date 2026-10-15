@@ -1,0 +1,21 @@
+# Estante de filmes — /sistemas/zombiebasilisk/
+# Uma linha por filme. A ordem das linhas é a ordem das lombadas.
+#
+# arquivo-do-frame | título | data | palavras-chave separadas por vírgula | URL do vídeo
+# Campos opcionais ao final: | crop horizontal% vertical% | descrição | texto do link | tipo | créditos
+# Exemplo de crop: 50% 27%. Para descrição com crop padrão, deixe o sexto campo vazio.
+# O frame aparece em 16:9. Sem esse campo, o recorte é centralizado (50% 50%).
+# Valores de 0% a 100%: vertical menor privilegia o topo; maior, a base.
+#
+# Suba o frame em assets/img/filmes e acrescente a linha correspondente aqui.
+# Use o nome exato do arquivo, inclusive maiúsculas e extensão.
+# A data é texto livre: ano, mês/ano ou uma data completa confirmada por você.
+# Não use o caractere | dentro dos campos. Não é necessário HTML.
+# A URL deve começar com https:// ou http:// e apontar para o vídeo ou canal.
+# A descrição aparece acima do frame; o texto do link padrão é "Assistir ao filme".
+# Formatos: .jpg, .jpeg, .png, .webp, .gif, .avif.
+# Linhas iniciadas por # são comentários e não aparecem no site.
+#
+blue-rider.jpg | Blue Rider | 2026 | surrealism, dreamy, dark fantasy | https://www.instagram.com/p/DZOKJG5NZ65/ | 50% 32% | A dark rider travels through a land of dreams and nightmares until he meets his fate in the form of a curious portal. The crossing will transform him forever. |  | short film | Created by Marcvs.
+the-first-astronaut.jpg | The First Astronaut | 2026 | horror, sci-fi, space exploration | https://www.instagram.com/p/DZH15ivxmJu/ | 50% 27% | A routine mission on a hostile planet leads to an unexpected journey into an astronaut’s distorted inner world. Created entirely with AI, this short film explores the boundary of the unknown and the consequences of crossing it. | Watch the film | short film | Written and directed by Marcvs.
+papa-dedos.jpg | Papa-Dedos | 2026 | folk horror, surrealism | https://www.instagram.com/p/DZckHzLgHBg/ | 50% 26% | On the Island of Brazil, an old popular cult honors Papa-Dedos, the Finger-Eater, a saint said to have appeared one June night to many people at once, mostly children, amid lights spinning in colors across the sky. Witnesses described an enormous mouth from which emerged tubes resembling human fingers. Many of those children were never seen again. Footage excerpted from the documentary “Papa-Dedos: A Popular Brazilenho Saint,” by LuscoFilms. |  | short film | Created by Marcvs.
