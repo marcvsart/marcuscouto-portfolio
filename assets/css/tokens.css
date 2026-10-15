@@ -1,0 +1,44 @@
+/* Tokens únicos do site. Toda cor, fonte e medida recorrente parte daqui. */
+:root {
+  color-scheme: dark;
+
+  /* cor */
+  --bg: #080b10;
+  --surface: #0d1420;
+  --surface-2: #101a29;   /* lombada aberta, painéis */
+  --ink: #e5ebf4;
+  --ink-2: #c0cede;
+  --ink-soft: #93a5bb;
+  --accent: #a9caff;      /* azul fantasma */
+  --accent-2: #c5dcff;
+  --rule: #28374b;
+  --rule-soft: #1a2533;
+  --scanline: rgba(0, 0, 0, .14);
+  --vignette: rgba(0, 0, 0, .45);
+
+  /* tipografia */
+  --font-title: "Workbench", "IBM Plex Mono", ui-monospace, monospace;
+  --font-num: "Doto", "IBM Plex Mono", ui-monospace, monospace;
+  --font-text: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  --fs-xs: .75rem;
+  --fs-s: .8125rem;
+  --fs-m: .875rem;
+  --fs-base: 1rem;
+  --fs-l: 1.125rem;
+  --fs-title-item: clamp(1.4rem, 2.8vw, 2.3rem);
+  --fs-title-section: clamp(1.6rem, 3.4vw, 2.5rem);
+  --fs-title-page: clamp(2.25rem, 6vw, 4.5rem);
+  --fs-phrase: clamp(1.75rem, 4.2vw, 3.4rem);
+  --fs-num: clamp(2.25rem, 5vw, 3.5rem);
+
+  /* espaço */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 20px;
+  --space-4: 28px;
+  --space-5: 44px;
+  --space-6: 64px;
+  --shell: 1320px;
+  --gutter: clamp(16px, 5vw, 56px);
+}

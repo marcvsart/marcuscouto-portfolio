@@ -1,0 +1,50 @@
+{
+  "prensa_automata": {
+    "edicoes_publicadas": {
+      "valor": 16,
+      "fonte": "prensaautomata.com",
+      "data": "2026-10"
+    }
+  },
+  "zombiebasilisk": {
+    "tiktok_visualizacoes": {
+      "valor": 18500000,
+      "aproximado": true,
+      "fonte": "TikTok @zombiebasilisk, relato de Marcus (acumulado desde fev/2025)",
+      "data": "2026-09"
+    },
+    "tiktok_seguidores": {
+      "valor": 51000,
+      "fonte": "TikTok @zombiebasilisk, relato de Marcus",
+      "data": "2026-09"
+    },
+    "maior_video_duracao_segundos": {
+      "valor": 20,
+      "fonte": "TikTok @zombiebasilisk, vídeo de 20/03/2025",
+      "data": "2026-09"
+    },
+    "maior_video_visualizacoes": {
+      "valor": 5200000,
+      "fonte": "TikTok @zombiebasilisk, vídeo de 20/03/2025",
+      "data": "2026-09"
+    },
+    "maior_video_novos_seguidores": {
+      "valor": 27200,
+      "fonte": "TikTok @zombiebasilisk, vídeo de 20/03/2025",
+      "data": "2026-09"
+    }
+  },
+  "uol": {
+    "historias_das_ruas_episodios": {
+      "valor": 16,
+      "fonte": "Instagram, série Histórias das Ruas de SP, relato de Marcus",
+      "data": "2026-08"
+    },
+    "historias_das_ruas_visualizacoes": {
+      "valor": 4500000,
+      "aproximado": true,
+      "fonte": "Instagram, série Histórias das Ruas de SP, relato de Marcus (acumulado)",
+      "data": "2026-08"
+    }
+  }
+}
