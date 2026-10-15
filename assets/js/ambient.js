@@ -1,4 +1,4 @@
-/* A quiet field of dissolving pixels, behind the content. */
+/* Campo discreto de pixels que se dissolvem, atrás do conteúdo. */
 (function () {
   'use strict';
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -8,8 +8,13 @@
   document.body.prepend(canvas);
   const ctx = canvas.getContext('2d');
   if (!ctx) { canvas.remove(); return; }
+
+  // Cor do token --accent, convertida para RGB.
+  const hex = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim().replace('#', '');
+  const rgb = hex.length === 6 ? [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16)).join(',') : '169,202,255';
+
   let w = 0, h = 0, frame = 0, last = 0;
-  const points = Array.from({length: 28}, (_, i) => ({
+  const points = Array.from({ length: 28 }, (_, i) => ({
     x: ((i * 137 + 23) % 997) / 997,
     y: ((i * 271 + 41) % 991) / 991,
     size: i % 3 === 0 ? 8 : 4,
@@ -26,7 +31,7 @@
       ctx.clearRect(0, 0, w, h);
       points.forEach(p => {
         const opacity = Math.max(0, Math.sin(time / 4500 + p.phase)) * .09;
-        ctx.fillStyle = `rgba(169,202,255,${opacity})`;
+        ctx.fillStyle = `rgba(${rgb},${opacity})`;
         ctx.fillRect(Math.round(p.x * w / 8) * 8, Math.round(p.y * h / 8) * 8, p.size, p.size);
       });
       last = time;
@@ -38,7 +43,7 @@
     ctx.clearRect(0, 0, w, h);
     if (!preference.matches && !document.hidden) frame = window.requestAnimationFrame(draw);
   }
-  window.addEventListener('resize', resize, {passive: true});
+  window.addEventListener('resize', resize, { passive: true });
   document.addEventListener('visibilitychange', sync);
   preference.addEventListener('change', sync);
   resize(); sync();

@@ -1,51 +1,147 @@
-# Marcus Couto — portfólio profissional
+# marcuscouto.com
 
-Atualização visual de setembro de 2026, aproximando o portfólio de direção de arte do universo Marcvs.art.
+Portfólio unificado de Marcus Couto (marcvs). Site estático no GitHub Pages: sem build, sem dependências. O que está no repositório é o que vai ao ar.
 
-## Publicar no GitHub Pages
+## Estrutura
 
-1. Faça uma cópia da versão atual do repositório.
-2. Extraia este ZIP e copie o conteúdo da pasta `marcuscouto-portfolio-main` para a raiz do repositório, substituindo os arquivos existentes. Não crie uma subpasta no repositório.
-3. Inclua também os novos arquivos `site.css`, `home.css` e `ambient.js`.
-4. Confirme a alteração na branch usada pelo GitHub Pages e aguarde a atualização do site.
+```
+/                               index.html (home)
+/pesquisa/                      pesquisa/index.html
+/sistemas/prensa-automata/      sistemas/prensa-automata/index.html
+/sistemas/zombiebasilisk/       sistemas/zombiebasilisk/index.html
+/sistemas/uol/                  sistemas/uol/index.html
+/poetica/                       poetica/index.html  (#pintura-cryptoart, #literatura, #som)
+/poetica/som/                   poetica/som/index.html
+/fale-comigo/                   fale-comigo/index.html
+/404.html                       página de erro (o GitHub Pages serve para qualquer endereço inexistente)
 
-O arquivo `CNAME` foi preservado. Não há instalação, dependências de build ou mudança de domínio.
+uol-30-years.html, stories-from-sao-paulo.html,
+archive-of-fame.html, it-happened-like-this.html   redirecionamentos para /sistemas/uol/#série
 
-## O que mudou
+assets/css/tokens.css     tokens (cores, fontes, medidas): o único lugar com valores de cor
+assets/css/base.css       estrutura, textura, cabeçalho, rodapé, lombada, glitch dosado
+assets/css/poetica.css    Poética e Som: bolas, visualizador, coleções, discografia, glitch pleno
 
-- Home com apresentação compacta e quatro projetos em lombadas expansíveis nativas, acessíveis por teclado e toque.
-- Identidade compartilhada entre home e cases: fundo preto, ghost-blue, tipografia pontilhada Doto e textos IBM Plex Mono.
-- Cabeçalho com acesso ao portfólio profissional e ao Marcvs.art.
-- Casos com contribuição, ficha técnica, descrição e acesso às publicações.
-- Zombiebasilisk e Marcvs.art continuam acessíveis na home; Instagram e LinkedIn permanecem no contato.
-- Fundo com pixels discretos, desativado quando há preferência por movimento reduzido. A animação pausa quando a aba fica oculta.
-- Conteúdo e navegação disponíveis mesmo sem JavaScript. As fontes têm alternativas locais.
+assets/js/layout.js       cabeçalho e rodapé de todas as páginas + glitch da marca e dos títulos
+assets/js/ambient.js      pixels ambientes (fundo)
+assets/js/numeros.js      preenche os números a partir de data/numeros.json
+assets/js/filmes.mjs      estante de filmes (ZOMBIEBASILISK)
+assets/js/lombada.js      abre a lombada indicada no endereço (/sistemas/uol/#archive-of-fame)
+assets/js/pinturas.js     bolas e visualizador das pinturas
+assets/js/som.js          discografia
+assets/js/poetica.js      glitch pleno e scramble (Poética e Som)
+assets/js/basilisk-field.mjs  campo de pixels da pintura Retrato do Basilisco (Poética e Som)
 
-## Arquivos alterados / novos
+assets/img/filmes/        frames da estante
+assets/img/pinturas/      pinturas em WebP e AVIF (os originais ficam fora do site)
+assets/img/og/            imagens de compartilhamento 1200×630, uma por página principal
 
-- `index.html`: nova home; textos e projetos em HTML, sem depender de geração por JavaScript.
-- `uol-30-years.html`, `stories-from-sao-paulo.html`, `archive-of-fame.html`, `it-happened-like-this.html`: cases atualizados.
-- `site.css`: identidade compartilhada, navegação e rodapé.
-- `home.css`: home e lombadas.
-- `project-page.css`: layout dos cases.
-- `ambient.js`: animação de fundo.
-- `fade.js`: mantém compatibilidade sem ocultar o conteúdo ou interceptar links.
-- `README.md`: estas instruções.
+data/numeros.json         números das páginas
+data/filmes.txt           estante de filmes
+data/pinturas.txt         pinturas
+data/som.json             discografia
+```
 
-`defrag.js` e `_project-page.css` foram preservados do pacote original, mas não são carregados nesta versão.
+### Cabeçalho e rodapé
 
-## Imagens e conteúdo
+Ficam só em `assets/js/layout.js`. Cada página tem `<header data-site-header></header>`, seguido de `<script src="/assets/js/layout.js"></script>`, e `<footer data-site-footer></footer>`. Para mudar o menu, os links do rodapé ou as coordenadas, edite as listas `NAV` e `FOOTER_LINKS` no início do arquivo.
 
-O ZIP original contém links do Instagram, sem imagens ou vídeos locais. Esta versão usa os textos e destinos fornecidos, sem miniaturas fictícias nem espaços vazios. Os frames grandes previstos na proposta ainda precisam de imagens dos projetos para serem incluídos.
+O seletor `PT | EN` já está no cabeçalho, com EN desabilitado. Cada página tem `<link rel="alternate" hreflang="pt-BR">`; o par em inglês entra quando a versão EN existir.
 
-Para cada projeto, os parágrafos originais, datas e links das publicações foram preservados. A síntese de contribuição usa informações presentes no próprio portfólio. Não foram adicionados créditos ou resultados não fornecidos.
+## Tokens
 
-## Verificação realizada
+| Token | Valor | Uso |
+|---|---|---|
+| `--bg` | `#080b10` | fundo |
+| `--surface` | `#0d1420` | hover, blocos |
+| `--surface-2` | `#101a29` | lombada aberta |
+| `--ink` | `#e5ebf4` | texto principal |
+| `--ink-2` | `#c0cede` | texto corrido |
+| `--ink-soft` | `#93a5bb` | metadados |
+| `--accent` | `#a9caff` | azul fantasma |
+| `--accent-2` | `#c5dcff` | hover de links |
+| `--rule` / `--rule-soft` | `#28374b` / `#1a2533` | filetes |
 
-- Cinco páginas HTML com um título principal e uma área principal por página.
-- Quatro lombadas nativas e todos os caminhos locais e âncoras conferidos.
-- Todos os 14 links de filmes/episódios e descrições originais preservados.
-- Sintaxe de `fade.js` e `ambient.js` validada.
-- Regras responsivas para desktop e mobile revisadas no código; sem validação visual em navegador nesta entrega.
+Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 
-O pacote não publica alterações automaticamente no site atual.
+**Tipografia** (Google Fonts, só os pesos usados):
+- **Workbench**: títulos (frase da home, títulos de página, de seção e de lombada). `--font-title`
+- **Doto 900**: índices (01, 02…) e detalhes numéricos (números, datas, anos). `--font-num`
+- **IBM Plex Mono 300/400/500**: texto corrido, legendas, metadados. `--font-text`
+
+**Efeitos:**
+- Site todo: scanlines, vinheta de tubo, acendimento `tube-on`, pixels ambientes.
+- Glitch dosado (fora de Poética): 3 fatias, 3–4px, 0,24s, mais uma fatia em `--accent` defasada. Na marca, dispara ao carregar, a cada 20–40s e no hover. Nos títulos com `data-glitch="hover"`, só no hover.
+- Poética e Som: glitch pleno do marcvs.art e scramble nos elementos com `data-node`, mais o campo de pixels do basilisco.
+- Com "reduzir movimento" ativado no sistema, todos os efeitos ficam desligados.
+
+### Lombada
+
+`details.lombada` é o único componente de lista expansível (séries da UOL, filme UOL 30 Anos e estante de filmes):
+
+```html
+<details class="lombada" id="ancora">
+  <summary>
+    <span class="lombada-num">01</span>
+    <span class="lombada-id"><span class="lombada-titulo">Título</span><span class="lombada-tipo">tipo</span></span>
+    <span class="lombada-meta num">2026</span>
+    <span class="lombada-toggle"></span>
+  </summary>
+  <div class="lombada-painel">…</div>
+</details>
+```
+
+## Dados
+
+### data/numeros.json
+
+Cada número é um objeto com `valor` (número puro), `fonte` e `data` (`AAAA-MM` ou `AAAA-MM-DD`). `aproximado: true` mostra `~` antes do valor. As páginas formatam sozinhas: 18500000 vira "18,5 milhões" (ou "18,5 mi" com `data-formato="curto"`), e 51000 vira "51 mil".
+
+A linha "atualizado em" usa a data mais recente do grupo. `AAAA-MM-DD` aparece como `DD/MM/AAAA`; `AAAA-MM` aparece como `mês/AAAA`.
+
+Uma GitHub Action pode sobrescrever o arquivo inteiro, desde que mantenha as chaves (`prensa_automata.edicoes_publicadas`, `zombiebasilisk.tiktok_visualizacoes` etc.). Basta atualizar `valor`, `fonte` e `data`. No HTML, cada número é um `<span data-numero="grupo.chave">`.
+
+### Adicionar um filme
+
+1. Suba o frame em `assets/img/filmes/` (JPG ou WebP, nome simples em minúsculas).
+2. Acrescente uma linha em `data/filmes.txt`:
+
+```text
+arquivo.jpg | Título | Data | palavra-chave, palavra-chave | https://url-do-video | 50% 30% | Descrição curta | Texto do link | short film | Créditos
+```
+
+Os cinco primeiros campos são obrigatórios. Crop, descrição, texto do link (padrão: "Assistir ao filme"), tipo e créditos são opcionais. A ordem das linhas é a ordem da estante; uma linha começando com `#` sai do site.
+
+### Adicionar uma pintura
+
+1. Gere quatro arquivos em `assets/img/pinturas/`, todos com o mesmo nome-base:
+   - `nome-orb.webp` e `nome-orb.avif`: até 1600px no lado maior.
+   - `nome-full.webp` e `nome-full.avif`: até 2400px.
+2. Acrescente em `data/pinturas.txt`:
+
+```text
+nome | título | técnica e ano | https://link-para-colecionar
+```
+
+Use texto simples (sem HTML). O link é opcional e precisa começar com `https://`.
+
+### Adicionar um texto
+
+Ensaios (`/pesquisa/`) e literatura (`/poetica/#literatura`) ficam no HTML de cada página, numa lista `<ul class="entries">`. Copie um `<li class="entry">` existente e troque título, link e data. Na home, os títulos de Pesquisa e Poética ficam em `index.html`.
+
+### Adicionar um lançamento
+
+Acrescente um item ao grupo correspondente em `data/som.json`, com os campos `titulo`, `artista` (opcional), `notas`, `tipo`, `ano` e `url`.
+
+## Domínio e analytics
+
+- `CNAME`: `marcuscouto.com`. `.nojekyll` publica os arquivos sem processamento.
+- GoatCounter (`marcvs.goatcounter.com`) em todas as páginas.
+
+## Testar localmente
+
+```sh
+python3 -m http.server 8080
+```
+
+Abra `http://localhost:8080`. Os dados são lidos por `fetch`, que não funciona abrindo o HTML direto por `file://`.
