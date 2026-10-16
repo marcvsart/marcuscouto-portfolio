@@ -7,16 +7,17 @@ Portfólio unificado de Marcus Couto (marcvs). Site estático no GitHub Pages: s
 ```
 /                               index.html (home)
 /pesquisa/                      pesquisa/index.html
-/sistemas/prensa-automata/      sistemas/prensa-automata/index.html
-/sistemas/zombiebasilisk/       sistemas/zombiebasilisk/index.html
-/sistemas/uol/                  sistemas/uol/index.html
+/projetos/prensa-automata/      projetos/prensa-automata/index.html
+/projetos/zombiebasilisk/       projetos/zombiebasilisk/index.html
+/projetos/uol/                  projetos/uol/index.html
 /poetica/                       poetica/index.html  (#pintura-cryptoart, #literatura, #som)
 /poetica/som/                   poetica/som/index.html
-/fale-comigo/                   fale-comigo/index.html
+/sistema/                       sistema/index.html  (arquitetura de automação criativa + consultoria e workshops)
 /404.html                       página de erro (o GitHub Pages serve para qualquer endereço inexistente)
 
 uol-30-years.html, stories-from-sao-paulo.html,
-archive-of-fame.html, it-happened-like-this.html   redirecionamentos para /sistemas/uol/#série
+archive-of-fame.html, it-happened-like-this.html   redirecionamentos para /projetos/uol/#série
+sistemas/*/, fale-comigo/                         redirecionamentos dos endereços anteriores para /projetos/* e /sistema/
 
 assets/css/tokens.css     tokens (cores, fontes, medidas): o único lugar com valores de cor
 assets/css/base.css       estrutura, textura, cabeçalho, rodapé, lombada, glitch dosado
@@ -26,7 +27,7 @@ assets/js/layout.js       cabeçalho e rodapé de todas as páginas + glitch da 
 assets/js/ambient.js      pixels ambientes (fundo)
 assets/js/numeros.js      preenche os números a partir de data/numeros.json
 assets/js/filmes.mjs      estante de filmes (ZOMBIEBASILISK)
-assets/js/lombada.js      abre a lombada indicada no endereço (/sistemas/uol/#archive-of-fame)
+assets/js/lombada.js      abre a lombada indicada no endereço (/projetos/uol/#archive-of-fame)
 assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
 assets/js/poetica.js      glitch pleno e scramble (Poética e Som)
@@ -77,12 +78,12 @@ Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 
 ### Sigilos e estratos
 
-Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), rede de nós (Sistemas), espiral quadrada (Poética e Som) e elo (Fale comigo). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
+Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), elo (Projetos), engrenagem (Poética e Som) e rede de nós (Sistema). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
 
 Cada sigilo tem uma animação lenta de brilho (4,8s por ciclo). O atraso de cada pixel fica na variável `--d` do próprio `<rect>`:
 - estrela: onda do centro para fora;
 - rede: sinal descendo dos nós de cima para os de baixo;
-- espiral: luz percorrendo o caminho;
+- engrenagem: luz girando em volta do eixo;
 - elo: os dois elos respiram alternados.
 
 Com "reduzir movimento" ativado, a animação fica desligada.
