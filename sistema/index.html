@@ -41,14 +41,32 @@
   <h2 class="section-title" id="h-consultoria"><span data-glitch="hover">Consultoria e workshops</span></h2>
   <div class="lead">
     <p>Ajudo times criativos a desenhar sistemas que produzem com IA, do formato à rotina de publicação, com a direção definida antes da ferramenta. Atendo em consultoria e em workshops para equipes.</p>
-    <p>Se você tem um projeto, um time ou só uma pergunta sobre o que a automação pode fazer no seu trabalho, escreva para <a href="mailto:mvcoutob@gmail.com">mvcoutob@gmail.com</a> com algumas linhas de contexto.</p>
+    <p>Se você tem um projeto, um time ou só uma pergunta sobre o que a automação pode fazer no seu trabalho, escreva abaixo, com algumas linhas de contexto.</p>
   </div>
+</section>
+<section class="section" id="contato" aria-labelledby="h-contato">
+  <h2 class="section-title" id="h-contato"><span data-glitch="hover">Envie sua mensagem</span></h2>
+  <form class="contact-form" id="form-contato" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="COLE-AQUI-A-CHAVE-DO-WEB3FORMS">
+    <input type="hidden" name="subject" value="Nova mensagem pelo marcuscouto.com">
+    <input type="hidden" name="from_name" value="marcuscouto.com">
+    <input type="hidden" name="redirect" value="https://marcuscouto.com/sistema/?enviado=1#contato">
+    <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label for="contato-nome">Nome</label>
+    <input id="contato-nome" name="name" type="text" autocomplete="name" required>
+    <label for="contato-email">Seu e-mail</label>
+    <input id="contato-email" name="email" type="email" autocomplete="email" required>
+    <label for="contato-mensagem">Mensagem</label>
+    <textarea id="contato-mensagem" name="message" rows="6" required></textarea>
+    <button class="button" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+  </form>
 </section>
 </main>
 <footer data-site-footer></footer>
 </div>
 <script src="/assets/js/ambient.js" defer></script>
-
+<script src="/assets/js/contato.js" defer></script>
 <script data-goatcounter="https://marcvs.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
