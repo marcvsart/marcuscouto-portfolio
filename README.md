@@ -26,7 +26,7 @@ assets/css/arte.css       Arte e Som: bolas, visualizador, coleções, discograf
 assets/js/layout.js       cabeçalho e rodapé de todas as páginas + glitch da marca e dos títulos
 assets/js/ambient.js      pixels ambientes (fundo)
 assets/js/numeros.js      preenche os números a partir de data/numeros.json
-assets/js/filmes.mjs      estante de filmes (ZOMBIEBASILISK)
+assets/js/filmes.mjs      estante de filmes (Zombiebasilisk)
 assets/js/lombada.js      abre a lombada indicada no endereço (/projetos/uol/#archive-of-fame)
 assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
