@@ -65,7 +65,7 @@ O seletor `PT | EN` já está no cabeçalho, com EN desabilitado. Cada página t
 Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 
 **Tipografia** (Google Fonts, só os pesos usados):
-- **Workbench**: títulos (frase da home, títulos de página, de seção e de lombada). `--font-title`
+- **Workbench** (com os eixos BLED e SCAN): títulos (frase da home, títulos de página, de seção e de lombada). `--font-title`
 - **Doto 900**: índices (01, 02…) e detalhes numéricos (números, datas, anos). `--font-num`
 - **IBM Plex Mono 300/400/500**: texto corrido, legendas, metadados. `--font-text`
 
@@ -74,6 +74,16 @@ Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 - Glitch dosado (fora de Poética): 3 fatias, 3–4px, 0,24s, mais uma fatia em `--accent` defasada. Na marca, dispara ao carregar, a cada 20–40s e no hover. Nos títulos com `data-glitch="hover"`, só no hover.
 - Poética e Som: glitch pleno do marcvs.art e scramble nos elementos com `data-node`, mais o campo de pixels do basilisco.
 - Com "reduzir movimento" ativado no sistema, todos os efeitos ficam desligados.
+
+### Sigilos e estratos
+
+Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), rede de nós (Sistemas), espiral quadrada (Poética e Som) e elo (Fale comigo). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
+
+A lista da home segue os estratos do marcvs.art:
+- o caminho e a profundidade acima de cada título (`/pesquisa · −12m`);
+- a textura do Workbench, que muda a cada camada (eixos `BLED` e `SCAN`, classes `.l0` a `.l3`);
+- o hover em vídeo invertido;
+- o `> ` antes do subtítulo e os itens como árvore (`├─`, `└─`).
 
 ### Lombada
 
