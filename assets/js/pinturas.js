@@ -3,6 +3,10 @@
 (() => {
   'use strict';
   const IMG = '/assets/img/pinturas/';
+  const EN = document.documentElement.lang === 'en';
+  const T = EN
+    ? { view: 'View painting: ', empty: 'The paintings are temporarily unavailable.', collect: 'collect ↗' }
+    : { view: 'Ver pintura: ', empty: 'As pinturas estão temporariamente indisponíveis.', collect: 'colecionar ↗' };
   const mobileQuery = window.matchMedia('(max-width: 720px)');
   const pfield = document.getElementById('pfield');
   if (!pfield) return;
@@ -20,7 +24,7 @@
       .filter(line => line.trim() && !line.trimStart().startsWith('#'))
       .map(line => line.split('|').map(v => v.trim()))
       .filter(([base, title]) => base && title && /^[a-z0-9-]+$/.test(base))
-      .map(([base, title, medium = '', link = '']) => ({ base, title, medium, link: safeURL(link) }));
+      .map(([base, title, medium = '', link = '', titleEn = '']) => ({ base, title: (EN && titleEn) || title, medium, link: safeURL(link) }));
   }
 
   function placeOrbs() {
@@ -82,7 +86,7 @@
     o.style.setProperty('--dur', (6 + Math.random() * 7).toFixed(1) + 's');
     o.style.setProperty('--delay', (-Math.random() * 8).toFixed(1) + 's');
     o.style.setProperty('--drift', (-(10 + Math.random() * 16)).toFixed(0) + 'px');
-    o.setAttribute('aria-label', 'Ver pintura: ' + painting.title);
+    o.setAttribute('aria-label', T.view + painting.title);
     o.addEventListener('click', () => openViewer(painting));
     orbs.push(o);
     pfield.appendChild(o);
@@ -99,7 +103,7 @@
     } catch {
       const empty = document.createElement('p');
       empty.className = 'empty';
-      empty.textContent = 'As pinturas estão temporariamente indisponíveis.';
+      empty.textContent = T.empty;
       pfield.replaceChildren(empty);
       pfield.style.height = 'auto';
     }
@@ -136,7 +140,7 @@
       link.href = painting.link;
       link.target = '_blank';
       link.rel = 'noopener';
-      link.textContent = 'colecionar ↗';
+      link.textContent = T.collect;
       caption.push(document.createTextNode(' · '), link);
     }
     viewerCap.replaceChildren(...caption);

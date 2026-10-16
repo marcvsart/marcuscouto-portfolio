@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   const root = document.getElementById('discografia');
+  const EN = document.documentElement.lang === 'en';
   if (!root) return;
 
   function el(tag, className, text) {
@@ -26,7 +27,7 @@
         h2.append(el('span', '', grupo.grupo));
         h2.firstChild.setAttribute('data-node', '');
         const n = grupo.itens.length;
-        head.append(h2, el('span', 'count', `${String(n).padStart(2, '0')} ${n === 1 ? 'item' : 'itens'}`));
+        head.append(h2, el('span', 'count', `${String(n).padStart(2, '0')} ${EN ? (n === 1 ? 'item' : 'items') : (n === 1 ? 'item' : 'itens')}`));
         section.append(head);
         grupo.itens.forEach((item, i) => {
           const url = safeURL(item.url);
@@ -52,7 +53,7 @@
       if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
     })
     .catch(() => {
-      root.replaceChildren(el('p', 'shelf-message', 'A discografia está temporariamente indisponível.'));
+      root.replaceChildren(el('p', 'shelf-message', EN ? 'The discography is temporarily unavailable.' : 'A discografia está temporariamente indisponível.'));
       root.setAttribute('aria-busy', 'false');
     });
 })();

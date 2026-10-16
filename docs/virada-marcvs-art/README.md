@@ -1,6 +1,6 @@
-# Virada do marcvs.art → marcuscouto.com/arte/
+# Virada do marcvs.art → marcuscouto.com/en/art/
 
-Kit para o marcvs.art passar a levar à página Marcvs (`/arte/`) do site unificado, com cada endereço antigo apontando para o equivalente novo.
+Kit para o marcvs.art passar a levar à página Marcvs do site unificado, **na versão em inglês** (`/en/art/`), já que o domínio é usado para falar com colecionadores. Cada endereço antigo aponta para o equivalente novo; o botão PT | EN leva à versão em português.
 
 ## Como está hoje
 
@@ -14,21 +14,21 @@ Também está em [`mapa.csv`](mapa.csv).
 
 | marcvs.art | vai para |
 |---|---|
-| `/` | `/arte/` |
-| `/portraits-of-the-basilisk.html` | `/arte/#pintura-cryptoart` |
-| `/cryptoart.html` | `/arte/#pintura-cryptoart` |
-| `/imagem.html`, `/visuals.html` | `/arte/#pintura-cryptoart` |
-| `/som.html` | `/arte/som/` (mantém a âncora: `#osasco-dynamics` continua funcionando) |
-| `/texto.html` | `/arte/#literatura` |
-| `/bio.html` | `/` (home, com a apresentação) |
-| `/films/*` | `/projetos/zombiebasilisk/#filmes` |
-| `/paintings/*` | `/arte/#pintura-cryptoart` |
-| qualquer outro | `/arte/` (via `404.html`) |
+| `/` | `/en/art/` |
+| `/portraits-of-the-basilisk.html` | `/en/art/#painting-cryptoart` |
+| `/cryptoart.html` | `/en/art/#painting-cryptoart` |
+| `/imagem.html`, `/visuals.html` | `/en/art/#painting-cryptoart` |
+| `/som.html` | `/en/art/sound/` (mantém a âncora: `#osasco-dynamics` continua funcionando) |
+| `/texto.html` | `/en/art/#literature` |
+| `/bio.html` | `/en/` (home em inglês, com a apresentação) |
+| `/films/*` | `/en/projects/zombiebasilisk/#films` |
+| `/paintings/*` | `/en/art/#painting-cryptoart` |
+| qualquer outro | `/en/art/` (via `404.html`) |
 
 ## Passo a passo
 
-1. **Confira o site novo.** A página `/arte/` (Marcvs) precisa estar publicada no marcuscouto.com.
-2. **Faça um backup do repositório `marcvsart/marcvsart`.** Uma tag basta, por exemplo `antes-da-virada`, para poder voltar se precisar.
+1. **Confira o site novo.** A página `/en/art/` (Marcvs, em inglês) precisa estar publicada no marcuscouto.com.
+2. **Backup.** O site anterior está na branch `backup/antes-da-virada` do repositório `marcvsart/marcvsart`.
 3. **Substitua o conteúdo do repositório `marcvsart`** pelos arquivos da pasta [`marcvsart/`](marcvsart/):
    - `index.html`, `bio.html`, `cryptoart.html`, `imagem.html`, `visuals.html`, `som.html`, `texto.html`, `portraits-of-the-basilisk.html`, `404.html`;
    - `CNAME` (continua `marcvs.art`) e `.nojekyll`.
@@ -36,11 +36,11 @@ Também está em [`mapa.csv`](mapa.csv).
    Pode apagar o resto: `films/`, `paintings/`, CSS, JS, `og.png`, `README.md`. As imagens já estão copiadas no site novo, e qualquer endereço apagado cai no `404.html`, que também redireciona.
 4. **Ative "Enforce HTTPS"** em Settings → Pages do repositório `marcvsart`. Hoje `http://marcvs.art` não redireciona para `https`.
 5. **Teste no navegador**, alguns minutos depois do publish:
-   - `https://marcvs.art/` → `https://marcuscouto.com/arte/`
-   - `https://marcvs.art/som.html#osasco-dynamics` → `https://marcuscouto.com/arte/som/#osasco-dynamics`
-   - `https://marcvs.art/portraits-of-the-basilisk.html` → `https://marcuscouto.com/arte/#pintura-cryptoart`
-   - `https://marcvs.art/qualquer-coisa` → `https://marcuscouto.com/arte/`
-6. **Perfis e bios.** Os links que apontam para marcvs.art (Instagram, objkt, Transient, Manifold etc.) podem ficar como estão, porque redirecionam. Se quiser, troque aos poucos por `marcuscouto.com/arte/`.
+   - `https://marcvs.art/` → `https://marcuscouto.com/en/art/`
+   - `https://marcvs.art/som.html#osasco-dynamics` → `https://marcuscouto.com/en/art/sound/#osasco-dynamics`
+   - `https://marcvs.art/portraits-of-the-basilisk.html` → `https://marcuscouto.com/en/art/#painting-cryptoart`
+   - `https://marcvs.art/qualquer-coisa` → `https://marcuscouto.com/en/art/`
+6. **Perfis e bios.** Os links que apontam para marcvs.art (Instagram, objkt, Transient, Manifold etc.) podem ficar como estão, porque redirecionam. Se quiser, troque aos poucos por `marcuscouto.com/en/art/`.
 
 ## Como os redirecionamentos funcionam
 

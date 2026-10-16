@@ -3,7 +3,33 @@
 (function () {
   'use strict';
 
-  var NAV = [
+  var EN = document.documentElement.lang === 'en';
+
+  // Páginas equivalentes nas duas línguas (o botão PT | EN leva de uma à outra).
+  var PAIRS = [
+    ['/', '/en/'],
+    ['/pesquisa/', '/en/research/'],
+    ['/projetos/prensa-automata/', '/en/projects/prensa-automata/'],
+    ['/projetos/zombiebasilisk/', '/en/projects/zombiebasilisk/'],
+    ['/projetos/uol/', '/en/projects/uol/'],
+    ['/arte/', '/en/art/'],
+    ['/arte/som/', '/en/art/sound/'],
+    ['/sistema/', '/en/system/']
+  ];
+  // Âncoras de seção que mudam de nome entre as línguas (as demais são iguais).
+  var ANCHORS = [
+    ['em-destaque', 'featured'], ['ensaios', 'essays'], ['filmes', 'films'], ['filme', 'film'],
+    ['pintura-cryptoart', 'painting-cryptoart'], ['som', 'sound'], ['literatura', 'literature'],
+    ['consultoria', 'consulting'], ['contato', 'contact'], ['sistema', 'system'], ['pesquisa', 'research'],
+    ['projetos', 'projects'], ['arte', 'art']
+  ];
+
+  var NAV = EN ? [
+    { href: '/en/research/', label: 'Research', match: /^\/en\/research\// },
+    { href: '/en/#projects', label: 'Projects', match: /^\/en\/projects\// },
+    { href: '/en/art/', label: 'Art', match: /^\/en\/art\// },
+    { href: '/en/system/', label: 'System', match: /^\/en\/system\// }
+  ] : [
     { href: '/pesquisa/', label: 'Pesquisa', match: /^\/pesquisa\// },
     { href: '/#projetos', label: 'Projetos', match: /^\/projetos\// },
     { href: '/arte/', label: 'Arte', match: /^\/arte\// },
@@ -11,11 +37,24 @@
   ];
 
   var FOOTER_LINKS = [
-    { href: '/sistema/#contato', label: 'Fale comigo' },
+    EN ? { href: '/en/system/#contact', label: 'Get in touch' } : { href: '/sistema/#contato', label: 'Fale comigo' },
     { href: 'https://www.instagram.com/marcvs/', label: 'Instagram ↗', external: true },
     { href: 'https://www.linkedin.com/in/marcusvcouto/', label: 'LinkedIn ↗', external: true },
     { href: 'https://marcvscouto.substack.com', label: 'Substack ↗', external: true }
   ];
+
+  function counterpart() {
+    var path = location.pathname.replace(/index\.html$/, '');
+    var from = EN ? 1 : 0, to = EN ? 0 : 1;
+    var pair = PAIRS.filter(function (p) { return p[from] === path; })[0];
+    var target = pair ? pair[to] : (EN ? '/' : '/en/');
+    var hash = location.hash.slice(1);
+    if (hash) {
+      var a = ANCHORS.filter(function (x) { return x[from] === hash; })[0];
+      target += '#' + (a ? a[to] : hash);
+    }
+    return target;
+  }
 
   function el(tag, attrs, text) {
     var node = document.createElement(tag);
@@ -27,26 +66,26 @@
   function buildHeader(header) {
     var path = location.pathname;
     header.className = 'site-header';
-    var brand = el('a', { class: 'brand glitch', href: '/', 'data-glitch': 'brand' }, 'marcvs · marcus couto');
-    var nav = el('nav', { class: 'site-nav', 'aria-label': 'Principal' });
+    var brand = el('a', { class: 'brand glitch', href: EN ? '/en/' : '/', 'data-glitch': 'brand' }, 'marcvs · marcus couto');
+    var nav = el('nav', { class: 'site-nav', 'aria-label': EN ? 'Main' : 'Principal' });
     NAV.forEach(function (item) {
       var link = el('a', { href: item.href }, item.label);
       if (item.match.test(path)) link.setAttribute('aria-current', 'page');
       nav.append(link);
     });
-    var lang = el('div', { class: 'lang', role: 'group', 'aria-label': 'Idioma' });
-    lang.append(
-      el('span', { 'aria-current': 'true', lang: 'pt-BR' }, 'PT'),
-      el('span', { 'aria-hidden': 'true' }, '|'),
-      el('span', { class: 'lang-off', 'aria-disabled': 'true', title: 'em breve', lang: 'en' }, 'EN')
-    );
-    lang.lastChild.append(el('span', { class: 'sr-only' }, ' (em breve)'));
+    var lang = el('div', { class: 'lang', role: 'group', 'aria-label': EN ? 'Language' : 'Idioma' });
+    var other = el('a', { href: counterpart(), lang: EN ? 'pt-BR' : 'en', hreflang: EN ? 'pt-BR' : 'en' }, EN ? 'PT' : 'EN');
+    other.setAttribute('aria-label', EN ? 'Ler em português' : 'Read in English');
+    // Atualiza a âncora se o visitante navegar dentro da página.
+    window.addEventListener('hashchange', function () { other.href = counterpart(); });
+    var current = el('span', { 'aria-current': 'true' }, EN ? 'EN' : 'PT');
+    lang.append(EN ? other : current, el('span', { 'aria-hidden': 'true' }, '|'), EN ? current : other);
     header.replaceChildren(brand, nav, lang);
   }
 
   function buildFooter(footer) {
     footer.className = 'site-footer';
-    var nav = el('nav', { 'aria-label': 'Contato' });
+    var nav = el('nav', { 'aria-label': EN ? 'Contact' : 'Contato' });
     FOOTER_LINKS.forEach(function (item) {
       var attrs = { href: item.href };
       if (item.external) { attrs.target = '_blank'; attrs.rel = 'noopener'; }
@@ -57,7 +96,7 @@
 
   // ---- glitch dosado ----------------------------------------------------
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var arte = /^\/arte\//.test(location.pathname);
+  var arte = /^\/(en\/art|arte)\//.test(location.pathname);
 
   function glitch(node) {
     if (reduced.matches) return;

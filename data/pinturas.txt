@@ -1,7 +1,7 @@
 # Pinturas — Retratos do Basilisco · /poetica/#pintura-cryptoart
 # Uma linha por pintura. A ordem das linhas é a ordem das bolas.
 #
-# nome-base | título | técnica e ano | link para colecionar (opcional)
+# nome-base | título | técnica e ano | link para colecionar (opcional) | título em inglês (opcional)
 #
 # O nome-base aponta para quatro arquivos em assets/img/pinturas:
 #   nome-base-orb.webp e nome-base-orb.avif    (até 1600px no lado maior, usados nas bolas)
@@ -11,6 +11,6 @@
 #
 silicon-skull | silicon skull | digital painting, 2026 | https://www.transient.xyz/nfts/ethereum/0x6f2ef204ab017c648f8c4f1ec49f731827d14ff2/1
 child-with-implants | child with implants | digital painting, 2026 | https://www.transient.xyz/nfts/ethereum/0x6f2ef204ab017c648f8c4f1ec49f731827d14ff2/2
-portrait-of-the-basilisk | Retrato do Basilisco (peça 3) | digital painting, 2026 | https://www.transient.xyz/nfts/ethereum/0x6f2ef204ab017c648f8c4f1ec49f731827d14ff2/3
+portrait-of-the-basilisk | Retrato do Basilisco (peça 3) | digital painting, 2026 | https://www.transient.xyz/nfts/ethereum/0x6f2ef204ab017c648f8c4f1ec49f731827d14ff2/3 | Portrait of the Basilisk (piece 3)
 smiling-man | smiling man, inside a plastic bag, over an aerial view of a melted mall parking lot | digital painting, 2026 | https://www.transient.xyz/nfts/ethereum/0x6f2ef204ab017c648f8c4f1ec49f731827d14ff2/4
 face-emerging | face emerging from neural network | digital painting, 2026 | https://www.transient.xyz/nfts/ethereum/0x6f2ef204ab017c648f8c4f1ec49f731827d14ff2/5
