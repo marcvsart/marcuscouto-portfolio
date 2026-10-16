@@ -32,7 +32,6 @@ assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
 assets/js/arte.js         glitch pleno e scramble (Arte e Som)
 assets/js/contato.js      envio do formulário de contato (Web3Forms)
-assets/js/basilisk-field.mjs  campo de pixels da pintura Retrato do Basilisco (Arte e Som)
 
 assets/img/filmes/        frames da estante
 assets/img/pinturas/      pinturas em WebP e AVIF (os originais ficam fora do site)
@@ -74,7 +73,7 @@ Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 **Efeitos:**
 - Site todo: scanlines, vinheta de tubo, acendimento `tube-on`, pixels ambientes.
 - Glitch dosado (fora de Arte): 3 fatias, 3–4px, 0,24s, mais uma fatia em `--accent` defasada. Na marca, dispara ao carregar, a cada 20–40s e no hover. Nos títulos com `data-glitch="hover"`, só no hover.
-- Arte e Som: glitch pleno do marcvs.art e scramble nos elementos com `data-node`, mais o campo de pixels do basilisco.
+- Arte e Som: glitch pleno do marcvs.art e scramble nos elementos com `data-node`.
 - Com "reduzir movimento" ativado no sistema, todos os efeitos ficam desligados.
 
 ### Sigilos e estratos
