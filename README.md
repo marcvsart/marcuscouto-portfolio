@@ -31,6 +31,7 @@ assets/js/lombada.js      abre a lombada indicada no endereço (/projetos/uol/#a
 assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
 assets/js/arte.js         glitch pleno e scramble (Arte e Som)
+assets/js/contato.js      envio do formulário de contato (Web3Forms)
 assets/js/basilisk-field.mjs  campo de pixels da pintura Retrato do Basilisco (Arte e Som)
 
 assets/img/filmes/        frames da estante
@@ -151,6 +152,16 @@ Ensaios (`/pesquisa/`) e literatura (`/arte/#literatura`) ficam no HTML de cada 
 ### Adicionar um lançamento
 
 Acrescente um item ao grupo correspondente em `data/som.json`, com os campos `titulo`, `artista` (opcional), `notas`, `tipo`, `ano` e `url`.
+
+## Formulário de contato
+
+O formulário de `/sistema/#contato` é enviado pelo [Web3Forms](https://web3forms.com), que encaminha cada mensagem para o seu e-mail. O e-mail não aparece no site: o formulário usa só uma chave de acesso, que pode ser pública.
+
+- **Onde fica a chave:** no campo `access_key`, em `sistema/index.html`.
+- **Como trocar a chave:** gere outra em web3forms.com e substitua o valor desse campo.
+- **Envio:** com JavaScript, a mensagem é enviada sem sair da página (`assets/js/contato.js`). Sem JavaScript, o Web3Forms redireciona de volta para `/sistema/?enviado=1#contato`.
+- **Spam:** um campo invisível (`botcheck`) barra robôs.
+- **Limite:** o plano gratuito aceita 250 mensagens por mês.
 
 ## Domínio e analytics
 

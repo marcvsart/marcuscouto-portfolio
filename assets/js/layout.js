@@ -11,7 +11,7 @@
   ];
 
   var FOOTER_LINKS = [
-    { href: 'mailto:mvcoutob@gmail.com', label: 'mvcoutob@gmail.com' },
+    { href: '/sistema/#contato', label: 'Fale comigo' },
     { href: 'https://www.instagram.com/marcvs/', label: 'Instagram ↗', external: true },
     { href: 'https://www.linkedin.com/in/marcusvcouto/', label: 'LinkedIn ↗', external: true },
     { href: 'https://marcvscouto.substack.com', label: 'Substack ↗', external: true }
