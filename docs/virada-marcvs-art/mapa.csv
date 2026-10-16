@@ -1,12 +1,12 @@
 origem,destino
-https://marcvs.art/,https://marcuscouto.com/arte/
-https://marcvs.art/portraits-of-the-basilisk.html,https://marcuscouto.com/arte/#pintura-cryptoart
-https://marcvs.art/cryptoart.html,https://marcuscouto.com/arte/#pintura-cryptoart
-https://marcvs.art/imagem.html,https://marcuscouto.com/arte/#pintura-cryptoart
-https://marcvs.art/visuals.html,https://marcuscouto.com/arte/#pintura-cryptoart
-https://marcvs.art/som.html,https://marcuscouto.com/arte/som/
-https://marcvs.art/texto.html,https://marcuscouto.com/arte/#literatura
-https://marcvs.art/bio.html,https://marcuscouto.com/
-https://marcvs.art/films/*,https://marcuscouto.com/projetos/zombiebasilisk/#filmes
-https://marcvs.art/paintings/*,https://marcuscouto.com/arte/#pintura-cryptoart
-https://marcvs.art/* (qualquer outro),https://marcuscouto.com/arte/
+https://marcvs.art/,https://marcuscouto.com/en/art/
+https://marcvs.art/portraits-of-the-basilisk.html,https://marcuscouto.com/en/art/#painting-cryptoart
+https://marcvs.art/cryptoart.html,https://marcuscouto.com/en/art/#painting-cryptoart
+https://marcvs.art/imagem.html,https://marcuscouto.com/en/art/#painting-cryptoart
+https://marcvs.art/visuals.html,https://marcuscouto.com/en/art/#painting-cryptoart
+https://marcvs.art/som.html,https://marcuscouto.com/en/art/sound/
+https://marcvs.art/texto.html,https://marcuscouto.com/en/art/#literature
+https://marcvs.art/bio.html,https://marcuscouto.com/en/
+https://marcvs.art/films/*,https://marcuscouto.com/en/projects/zombiebasilisk/#films
+https://marcvs.art/paintings/*,https://marcuscouto.com/en/art/#painting-cryptoart
+https://marcvs.art/* (qualquer outro),https://marcuscouto.com/en/art/

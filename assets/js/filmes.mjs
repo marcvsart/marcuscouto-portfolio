@@ -1,6 +1,10 @@
 // Estante de filmes. O catálogo é local (data/filmes.txt) e segue no mesmo commit das imagens.
 // Formato documentado no próprio arquivo e no README.
 const FRAMES = '/assets/img/filmes/';
+const EN = typeof document !== 'undefined' && document.documentElement.lang === 'en';
+const T = EN
+  ? { channel: 'Watch the films on Zombiebasilisk ↗', watch: 'Watch the film', newTab: 'opens in a new tab', frame: 'Frame from', noLink: 'Video link unavailable' }
+  : { channel: 'Assista aos filmes no Zombiebasilisk ↗', watch: 'Assistir ao filme', newTab: 'abre em nova aba', frame: 'Frame de', noLink: 'Link do vídeo indisponível' };
 
 export function safeFilmURL(value) {
   try {
@@ -50,7 +54,7 @@ export function renderFilms(root, records) {
   root.replaceChildren();
   if (!records.length) {
     const message = element('p', 'shelf-message');
-    const channel = element('a', '', 'Assista aos filmes no Zombiebasilisk ↗');
+    const channel = element('a', '', T.channel);
     channel.href = 'https://www.instagram.com/zombiebasilisk/';
     channel.target = '_blank';
     channel.rel = 'noopener';
@@ -82,16 +86,16 @@ export function renderFilms(root, records) {
     const panel = element('div', 'lombada-painel');
     if (film.description) panel.append(element('p', '', film.description));
     if (film.credits) panel.append(element('p', 'creditos', film.credits));
-    const label = film.linkLabel || 'Assistir ao filme';
+    const label = film.linkLabel || T.watch;
     const frame = element(film.href ? 'a' : 'div', 'film-frame');
     if (film.href) {
       frame.href = film.href;
       frame.target = '_blank';
       frame.rel = 'noopener';
-      frame.setAttribute('aria-label', `${label} — ${film.title} (abre em nova aba)`);
+      frame.setAttribute('aria-label', `${label} — ${film.title} (${T.newTab})`);
     }
     const image = element('img');
-    image.alt = `Frame de ${film.title}`;
+    image.alt = `${T.frame} ${film.title}`;
     image.decoding = 'async';
     image.style.objectPosition = film.crop;
     image.addEventListener('error', () => {
@@ -99,7 +103,7 @@ export function renderFilms(root, records) {
       frame.classList.add('image-unavailable');
     });
     const watch = element('span', 'film-watch');
-    watch.append(element('span', '', film.href ? label : 'Link do vídeo indisponível'));
+    watch.append(element('span', '', film.href ? label : T.noLink));
     if (film.href) watch.append(element('span', '', '↗'));
     frame.append(image, watch);
     panel.append(frame);

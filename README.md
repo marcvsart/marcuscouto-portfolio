@@ -19,6 +19,9 @@ uol-30-years.html, stories-from-sao-paulo.html,
 archive-of-fame.html, it-happened-like-this.html   redirecionamentos para /projetos/uol/#série
 sistemas/*/, fale-comigo/, poetica/*/            redirecionamentos dos endereços anteriores para /projetos/*, /sistema/ e /arte/*
 
+Versão em inglês (mesma estrutura, em /en/):
+/en/  /en/research/  /en/projects/{prensa-automata,zombiebasilisk,uol}/  /en/art/  /en/art/sound/  /en/system/
+
 assets/css/tokens.css     tokens (cores, fontes, medidas): o único lugar com valores de cor
 assets/css/base.css       estrutura, textura, cabeçalho, rodapé, lombada, glitch dosado
 assets/css/arte.css       Arte e Som: bolas, visualizador, coleções, discografia, glitch pleno
@@ -151,6 +154,17 @@ Ensaios (`/pesquisa/`) e literatura (`/arte/#literatura`) ficam no HTML de cada 
 ### Adicionar um lançamento
 
 Acrescente um item ao grupo correspondente em `data/som.json`, com os campos `titulo`, `artista` (opcional), `notas`, `tipo`, `ano` e `url`.
+
+## Português e inglês
+
+O site tem as mesmas páginas nas duas línguas: a versão em português na raiz, a em inglês em `/en/`.
+
+- **Botão PT | EN:** leva à página equivalente na outra língua. Os pares e as âncoras que mudam de nome (`#ensaios` ↔ `#essays` etc.) ficam em `PAIRS` e `ANCHORS`, no `assets/js/layout.js`.
+- **Hreflang:** cada página declara `hreflang` para as duas versões, com `x-default` apontando para o português.
+- **Dados compartilhados:** filmes, pinturas, discografia e números valem para as duas línguas. Os scripts escolhem os textos de interface pelo `lang` da página: "Assistir ao filme" ↔ "Watch the film", "18,5 milhões" ↔ "18.5 million", "set/2026" ↔ "Sep 2026".
+- **Pinturas:** o 5º campo de `data/pinturas.txt` é o título em inglês, opcional.
+- **Ensaios e literatura:** continuam linkados no Substack em português, com a marcação "in Portuguese".
+- **Ao mudar um texto:** atualize as duas versões.
 
 ## Formulário de contato
 

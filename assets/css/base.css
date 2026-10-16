@@ -50,9 +50,10 @@ main { display: block; }
 .site-nav a { padding: 6px 0; text-decoration: none; color: var(--ink-2); }
 .site-nav a[aria-current="page"] { color: var(--ink); border-bottom: 1px solid var(--accent); }
 .site-nav a:hover { color: var(--accent); }
-.lang { display: flex; gap: 8px; color: var(--ink-soft); white-space: nowrap; }
+.lang { display: flex; align-items: baseline; gap: 8px; color: var(--ink-soft); white-space: nowrap; }
 .lang [aria-current] { color: var(--ink); }
-.lang-off { opacity: .55; cursor: not-allowed; }
+.lang a { color: var(--ink-soft); text-decoration: none; }
+.lang a:hover { color: var(--accent); }
 
 /* ---- rodapé ---- */
 .site-footer { margin-top: 96px; border-top: 1px solid var(--rule); padding: var(--space-4) 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2) var(--space-4); font-size: var(--fs-m); color: var(--ink-soft); }
