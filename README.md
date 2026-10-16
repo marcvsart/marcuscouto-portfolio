@@ -79,6 +79,14 @@ Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 
 Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), rede de nós (Sistemas), espiral quadrada (Poética e Som) e elo (Fale comigo). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
 
+Cada sigilo tem uma animação lenta de brilho (4,8s por ciclo). O atraso de cada pixel fica na variável `--d` do próprio `<rect>`:
+- estrela: onda do centro para fora;
+- rede: sinal descendo dos nós de cima para os de baixo;
+- espiral: luz percorrendo o caminho;
+- elo: os dois elos respiram alternados.
+
+Com "reduzir movimento" ativado, a animação fica desligada.
+
 A lista da home segue os estratos do marcvs.art:
 - o caminho e a profundidade acima de cada título (`/pesquisa · −12m`);
 - a textura do Workbench, que muda a cada camada (eixos `BLED` e `SCAN`, classes `.l0` a `.l3`);

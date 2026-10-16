@@ -63,6 +63,9 @@ main { display: block; }
 /* ---- títulos e cabeça de página ---- */
 .page-head { padding: var(--space-6) 0 var(--space-5); border-bottom: 1px solid var(--rule); }
 .sigil { display: block; flex: none; color: var(--accent); }
+/* sigilos: cada pixel varia de leve o brilho, com atraso conforme o desenho (ver --d no SVG) */
+.sigil rect { animation: sigil-pulse 4.8s ease-in-out var(--d, 0s) infinite; }
+@keyframes sigil-pulse { 0%, 100% { opacity: 1; } 35% { opacity: .42; } 60% { opacity: .9; } }
 .title-row { display: flex; align-items: center; gap: var(--space-3); }
 .title-row .sigil { width: clamp(44px, 6vw, 72px); height: auto; }
 .page-head h1 { margin: 0; font: 400 var(--fs-title-page)/1.1 var(--font-title); color: var(--ink); letter-spacing: .01em; }
