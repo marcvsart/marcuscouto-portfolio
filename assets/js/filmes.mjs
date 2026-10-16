@@ -50,7 +50,7 @@ export function renderFilms(root, records) {
   root.replaceChildren();
   if (!records.length) {
     const message = element('p', 'shelf-message');
-    const channel = element('a', '', 'Assista aos filmes no ZOMBIEBASILISK ↗');
+    const channel = element('a', '', 'Assista aos filmes no Zombiebasilisk ↗');
     channel.href = 'https://www.instagram.com/zombiebasilisk/';
     channel.target = '_blank';
     channel.rel = 'noopener';
