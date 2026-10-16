@@ -9,7 +9,8 @@ body {
   font: 400 var(--fs-base)/1.75 var(--font-text);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
-  animation: tube-on 360ms steps(4) both;
+  /* backwards: depois de acender, não deixa filtro residual no body (que quebraria elementos fixos, como o visualizador). */
+  animation: tube-on 360ms steps(4) backwards;
 }
 ::selection { color: var(--bg); background: var(--accent); }
 a { color: inherit; text-underline-offset: .3em; }
