@@ -10,18 +10,18 @@ Portfólio unificado de Marcus Couto (marcvs). Site estático no GitHub Pages: s
 /projetos/prensa-automata/      projetos/prensa-automata/index.html
 /projetos/zombiebasilisk/       projetos/zombiebasilisk/index.html
 /projetos/uol/                  projetos/uol/index.html
-/poetica/                       poetica/index.html  (#pintura-cryptoart, #literatura, #som)
-/poetica/som/                   poetica/som/index.html
+/arte/                          arte/index.html  (#pintura-cryptoart, #literatura, #som)
+/arte/som/                      arte/som/index.html
 /sistema/                       sistema/index.html  (arquitetura de automação criativa + consultoria e workshops)
 /404.html                       página de erro (o GitHub Pages serve para qualquer endereço inexistente)
 
 uol-30-years.html, stories-from-sao-paulo.html,
 archive-of-fame.html, it-happened-like-this.html   redirecionamentos para /projetos/uol/#série
-sistemas/*/, fale-comigo/                         redirecionamentos dos endereços anteriores para /projetos/* e /sistema/
+sistemas/*/, fale-comigo/, poetica/*/            redirecionamentos dos endereços anteriores para /projetos/*, /sistema/ e /arte/*
 
 assets/css/tokens.css     tokens (cores, fontes, medidas): o único lugar com valores de cor
 assets/css/base.css       estrutura, textura, cabeçalho, rodapé, lombada, glitch dosado
-assets/css/poetica.css    Poética e Som: bolas, visualizador, coleções, discografia, glitch pleno
+assets/css/arte.css       Arte e Som: bolas, visualizador, coleções, discografia, glitch pleno
 
 assets/js/layout.js       cabeçalho e rodapé de todas as páginas + glitch da marca e dos títulos
 assets/js/ambient.js      pixels ambientes (fundo)
@@ -30,8 +30,8 @@ assets/js/filmes.mjs      estante de filmes (ZOMBIEBASILISK)
 assets/js/lombada.js      abre a lombada indicada no endereço (/projetos/uol/#archive-of-fame)
 assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
-assets/js/poetica.js      glitch pleno e scramble (Poética e Som)
-assets/js/basilisk-field.mjs  campo de pixels da pintura Retrato do Basilisco (Poética e Som)
+assets/js/arte.js         glitch pleno e scramble (Arte e Som)
+assets/js/basilisk-field.mjs  campo de pixels da pintura Retrato do Basilisco (Arte e Som)
 
 assets/img/filmes/        frames da estante
 assets/img/pinturas/      pinturas em WebP e AVIF (os originais ficam fora do site)
@@ -72,13 +72,13 @@ Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 
 **Efeitos:**
 - Site todo: scanlines, vinheta de tubo, acendimento `tube-on`, pixels ambientes.
-- Glitch dosado (fora de Poética): 3 fatias, 3–4px, 0,24s, mais uma fatia em `--accent` defasada. Na marca, dispara ao carregar, a cada 20–40s e no hover. Nos títulos com `data-glitch="hover"`, só no hover.
-- Poética e Som: glitch pleno do marcvs.art e scramble nos elementos com `data-node`, mais o campo de pixels do basilisco.
+- Glitch dosado (fora de Arte): 3 fatias, 3–4px, 0,24s, mais uma fatia em `--accent` defasada. Na marca, dispara ao carregar, a cada 20–40s e no hover. Nos títulos com `data-glitch="hover"`, só no hover.
+- Arte e Som: glitch pleno do marcvs.art e scramble nos elementos com `data-node`, mais o campo de pixels do basilisco.
 - Com "reduzir movimento" ativado no sistema, todos os efeitos ficam desligados.
 
 ### Sigilos e estratos
 
-Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), elo (Projetos), engrenagem (Poética e Som) e rede de nós (Sistema). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
+Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), elo (Projetos), engrenagem (Arte e Som) e rede de nós (Sistema). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
 
 Cada sigilo tem uma animação lenta de brilho (4,8s por ciclo). O atraso de cada pixel fica na variável `--d` do próprio `<rect>`:
 - estrela: onda do centro para fora;
@@ -146,7 +146,7 @@ Use texto simples (sem HTML). O link é opcional e precisa começar com `https:/
 
 ### Adicionar um texto
 
-Ensaios (`/pesquisa/`) e literatura (`/poetica/#literatura`) ficam no HTML de cada página, numa lista `<ul class="entries">`. Copie um `<li class="entry">` existente e troque título, link e data. Na home, os títulos de Pesquisa e Poética ficam em `index.html`.
+Ensaios (`/pesquisa/`) e literatura (`/arte/#literatura`) ficam no HTML de cada página, numa lista `<ul class="entries">`. Copie um `<li class="entry">` existente e troque título, link e data. Na home, os títulos de Pesquisa e Arte ficam em `index.html`.
 
 ### Adicionar um lançamento
 
