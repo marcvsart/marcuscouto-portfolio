@@ -1,4 +1,4 @@
-/* Poética: campo do basilisco, bolas de pinturas, visualizador, coleções, discografia e glitch pleno. */
+/* Arte (e Som): campo do basilisco, bolas de pinturas, visualizador, coleções, discografia e glitch pleno. */
 
 /* campo de pixels da pintura Retrato do Basilisco */
 #basilisk-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .8; image-rendering: pixelated; }

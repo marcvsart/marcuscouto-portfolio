@@ -1,4 +1,4 @@
-// Poética: glitch pleno do marcvs.art (fatias rasgando, intensidade e frequência originais)
+// Arte: glitch pleno do marcvs.art (fatias rasgando, intensidade e frequência originais)
 // e scramble de texto. Elementos:
 //   [data-node]        → glitch sozinho a cada 9–18s, glitch + scramble no hover
 //   .page-head h1      → glitch no hover
@@ -36,11 +36,11 @@
   const h1 = document.querySelector('.page-head h1');
   if (h1) h1.addEventListener('mouseenter', () => slice(h1));
 
-  // Nós montados depois (ex.: discografia) avisam com o evento 'poetica:nodes'.
+  // Nós montados depois (ex.: discografia) avisam com o evento 'arte:nodes'.
   function bindNodes() {
     document.querySelectorAll('[data-node]').forEach(bindNode);
   }
-  document.addEventListener('poetica:nodes', bindNodes);
+  document.addEventListener('arte:nodes', bindNodes);
   bindNodes();
 
   function bindNode(el) {

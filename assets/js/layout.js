@@ -6,7 +6,7 @@
   var NAV = [
     { href: '/pesquisa/', label: 'Pesquisa', match: /^\/pesquisa\// },
     { href: '/#projetos', label: 'Projetos', match: /^\/projetos\// },
-    { href: '/poetica/', label: 'Poética', match: /^\/poetica\// },
+    { href: '/arte/', label: 'Arte', match: /^\/arte\// },
     { href: '/sistema/', label: 'Sistema', match: /^\/sistema\// }
   ];
 
@@ -57,7 +57,7 @@
 
   // ---- glitch dosado ----------------------------------------------------
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var poetica = /^\/poetica\//.test(location.pathname);
+  var arte = /^\/arte\//.test(location.pathname);
 
   function glitch(node) {
     if (reduced.matches) return;
@@ -76,8 +76,8 @@
   }
 
   function setupBrand(brand) {
-    if (poetica) {
-      // Em Poética, a marca usa o glitch pleno do marcvs.art (classe .glitching).
+    if (arte) {
+      // Em Arte, a marca usa o glitch pleno do marcvs.art (classe .glitching).
       brand.classList.remove('glitch');
       brand.classList.add('glitch-full');
     } else {
@@ -91,7 +91,7 @@
   }
 
   function setupTitles() {
-    if (poetica) return; // Poética usa o glitch pleno (poetica.js).
+    if (arte) return; // Arte usa o glitch pleno (arte.js).
     document.querySelectorAll('[data-glitch="hover"]').forEach(function (title) {
       title.classList.add('glitch');
       prepare(title);

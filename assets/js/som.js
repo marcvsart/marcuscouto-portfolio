@@ -48,7 +48,7 @@
       });
       root.setAttribute('aria-busy', 'false');
       // Glitch pleno nos nomes dos grupos, depois de montados.
-      document.dispatchEvent(new CustomEvent('poetica:nodes'));
+      document.dispatchEvent(new CustomEvent('arte:nodes'));
       if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
     })
     .catch(() => {
