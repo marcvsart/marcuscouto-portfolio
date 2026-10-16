@@ -25,8 +25,9 @@
     try {
       const response = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        // FormData (multipart) é um envio simples: dispensa a checagem prévia de CORS.
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result.success === false) throw new Error(result.message || response.status);
