@@ -5,7 +5,7 @@
 
   var NAV = [
     { href: '/pesquisa/', label: 'Pesquisa', match: /^\/pesquisa\// },
-    { href: '/#sistemas', label: 'Sistemas', match: /^\/sistemas\// },
+    { href: '/#projetos', label: 'Projetos', match: /^\/sistemas\// },
     { href: '/poetica/', label: 'Poética', match: /^\/poetica\// },
     { href: '/fale-comigo/', label: 'Fale comigo', match: /^\/fale-comigo\// }
   ];

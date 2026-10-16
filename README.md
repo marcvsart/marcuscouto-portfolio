@@ -7,6 +7,7 @@ Portfólio unificado de Marcus Couto (marcvs). Site estático no GitHub Pages: s
 ```
 /                               index.html (home)
 /pesquisa/                      pesquisa/index.html
+/sistemas/                      sistemas/index.html (subhome de Sistemas, dentro de Projetos)
 /sistemas/prensa-automata/      sistemas/prensa-automata/index.html
 /sistemas/zombiebasilisk/       sistemas/zombiebasilisk/index.html
 /sistemas/uol/                  sistemas/uol/index.html
@@ -77,12 +78,13 @@ Todos os pares de texto e fundo passam de 6,9:1 (AA exige 4,5:1).
 
 ### Sigilos e estratos
 
-Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), rede de nós (Sistemas), espiral quadrada (Poética e Som) e elo (Fale comigo). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
+Cada seção tem um sigilo em pixel (SVG embutido, cor `--accent`): estrela em expansão (Pesquisa), engrenagem (Projetos), rede de nós (Sistemas), espiral quadrada (Poética e Som) e elo (Fale comigo). Eles aparecem na lista da home e ao lado do título de cada página. Os desenhos são grades de 13×13 (`#` = pixel aceso); para alterar um sigilo, edite o `<svg class="sigil">` correspondente.
 
 Cada sigilo tem uma animação lenta de brilho (4,8s por ciclo). O atraso de cada pixel fica na variável `--d` do próprio `<rect>`:
 - estrela: onda do centro para fora;
 - rede: sinal descendo dos nós de cima para os de baixo;
 - espiral: luz percorrendo o caminho;
+- engrenagem: luz girando em volta do eixo;
 - elo: os dois elos respiram alternados.
 
 Com "reduzir movimento" ativado, a animação fica desligada.
