@@ -1,9 +1,9 @@
 {
   "prensa_automata": {
     "edicoes_publicadas": {
-      "valor": 16,
-      "fonte": "prensaautomata.com",
-      "data": "2026-10"
+      "valor": 44,
+      "fonte": "prensaautomata.com/edicoes (arquivo: Matutinas, Noturnas e especiais de domingo, desde 29/09/2026)",
+      "data": "2026-10-21"
     }
   },
   "zombiebasilisk": {
@@ -14,9 +14,14 @@
       "data": "2026-09"
     },
     "tiktok_seguidores": {
-      "valor": 51000,
+      "valor": 51800,
       "fonte": "TikTok @zombiebasilisk, relato de Marcus",
-      "data": "2026-09"
+      "data": "2026-10-21"
+    },
+    "instagram_seguidores": {
+      "valor": 3499,
+      "fonte": "Instagram @zombiebasilisk, relato de Marcus",
+      "data": "2026-10-21"
     },
     "maior_video_duracao_segundos": {
       "valor": 20,
