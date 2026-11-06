@@ -1,5 +1,7 @@
 # Virada do marcvs.art → marcuscouto.com/en/art/
 
+> **Histórico.** Em 6/11/2026, o marcvs.art deixou de redirecionar e virou site standalone (repositório `marcvsart/marcvsart`). Este kit fica como registro da fase de redirecionamento (21/10 a 6/11).
+
 Kit para o marcvs.art passar a levar à página Marcvs do site unificado, **na versão em inglês** (`/en/art/`), já que o domínio é usado para falar com colecionadores. Cada endereço antigo aponta para o equivalente novo; o botão PT | EN leva à versão em português.
 
 ## Como está hoje
