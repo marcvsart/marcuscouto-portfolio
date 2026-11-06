@@ -10,17 +10,16 @@ Portfólio unificado de Marcus Couto (marcvs). Site estático no GitHub Pages: s
 /projetos/prensa-automata/      projetos/prensa-automata/index.html
 /projetos/zombiebasilisk/       projetos/zombiebasilisk/index.html
 /projetos/uol/                  projetos/uol/index.html
-/arte/                          arte/index.html  (#pintura-cryptoart, #literatura, #som)
-/arte/som/                      arte/som/index.html
 /sistema/                       sistema/index.html  (arquitetura de automação criativa + consultoria e workshops)
 /404.html                       página de erro (o GitHub Pages serve para qualquer endereço inexistente)
 
 uol-30-years.html, stories-from-sao-paulo.html,
 archive-of-fame.html, it-happened-like-this.html   redirecionamentos para /projetos/uol/#série
-sistemas/*/, fale-comigo/, poetica/*/            redirecionamentos dos endereços anteriores para /projetos/*, /sistema/ e /arte/*
+sistemas/*/, fale-comigo/, poetica/*/, arte/*/, en/art/*/
+                                                  redirecionamentos dos endereços anteriores (os de arte levam ao marcvs.art)
 
 Versão em inglês (mesma estrutura, em /en/):
-/en/  /en/research/  /en/projects/{prensa-automata,zombiebasilisk,uol}/  /en/art/  /en/art/sound/  /en/system/
+/en/  /en/research/  /en/projects/{prensa-automata,zombiebasilisk,uol}/  /en/system/
 
 assets/css/tokens.css     tokens (cores, fontes, medidas): o único lugar com valores de cor
 assets/css/base.css       estrutura, textura, cabeçalho, rodapé, lombada, glitch dosado
@@ -154,6 +153,17 @@ Ensaios (`/pesquisa/`) e literatura (`/arte/#literatura`) ficam no HTML de cada 
 ### Adicionar um lançamento
 
 Acrescente um item ao grupo correspondente em `data/som.json`, com os campos `titulo`, `artista` (opcional), `notas`, `tipo`, `ano` e `url`.
+
+## Arte → marcvs.art
+
+Desde 6/11/2026, a arte tem site próprio: **marcvs.art**, no repositório `marcvsart/marcvsart`. No marcuscouto.com, o galho e o menu Arte levam para lá, e `/arte/`, `/arte/som/`, `/en/art/` e `/en/art/sound/` redirecionam para as páginas equivalentes do marcvs.art.
+
+Continuam neste repositório, porque o marcvs.art é gerado a partir deles:
+- os dados de filmes, pinturas, discografia e números (`data/`);
+- as imagens de filmes e pinturas (`assets/img/filmes/` e `assets/img/pinturas/`);
+- os estilos e scripts compartilhados (`assets/css/arte.css`, `pinturas.js`, `som.js`, `numeros.js`).
+
+Uma mudança aqui precisa ser copiada também para o marcvs.art.
 
 ## Português e inglês
 

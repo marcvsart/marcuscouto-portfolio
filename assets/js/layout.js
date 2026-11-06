@@ -12,8 +12,6 @@
     ['/projetos/prensa-automata/', '/en/projects/prensa-automata/'],
     ['/projetos/zombiebasilisk/', '/en/projects/zombiebasilisk/'],
     ['/projetos/uol/', '/en/projects/uol/'],
-    ['/arte/', '/en/art/'],
-    ['/arte/som/', '/en/art/sound/'],
     ['/sistema/', '/en/system/']
   ];
   // Âncoras de seção que mudam de nome entre as línguas (as demais são iguais).
@@ -27,12 +25,12 @@
   var NAV = EN ? [
     { href: '/en/research/', label: 'Research', match: /^\/en\/research\// },
     { href: '/en/#projects', label: 'Projects', match: /^\/en\/projects\// },
-    { href: '/en/art/', label: 'Art', match: /^\/en\/art\// },
+    { href: 'https://marcvs.art/', label: 'Art ↗', match: /^$/ },
     { href: '/en/system/', label: 'System', match: /^\/en\/system\// }
   ] : [
     { href: '/pesquisa/', label: 'Pesquisa', match: /^\/pesquisa\// },
     { href: '/#projetos', label: 'Projetos', match: /^\/projetos\// },
-    { href: '/arte/', label: 'Arte', match: /^\/arte\// },
+    { href: 'https://marcvs.art/pt/', label: 'Arte ↗', match: /^$/ },
     { href: '/sistema/', label: 'Sistema', match: /^\/sistema\// }
   ];
 
