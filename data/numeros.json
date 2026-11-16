@@ -50,6 +50,34 @@
       "aproximado": true,
       "fonte": "Instagram, série Histórias das Ruas de SP, relato de Marcus (acumulado)",
       "data": "2026-08"
+    },
+    "historias_das_ruas_interacoes": {
+      "valor": 430000,
+      "aproximado": true,
+      "fonte": "Instagram, série Histórias das Ruas de SP, relato de Marcus (acumulado)",
+      "data": "2026-08"
+    }
+  },
+  "yahoo_finance": {
+    "visualizacoes": {
+      "valor": 10000000,
+      "mais": true,
+      "fonte": "CV revisado de Marcus Couto: textos no Yahoo Finance Brasil, jun/2020 a jul/2021 (13 meses)",
+      "data": "2026-11-15"
+    }
+  },
+  "videocamp": {
+    "film_fund": {
+      "valor": 400000,
+      "moeda": "US$",
+      "fonte": "CV revisado de Marcus Couto: Videocamp Film Fund, lançado na ONU com o UNICEF",
+      "data": "2026-11-15"
+    },
+    "inscricoes": {
+      "valor": 150,
+      "mais": true,
+      "fonte": "CV revisado de Marcus Couto: inscrições no Videocamp Film Fund",
+      "data": "2026-11-15"
     }
   }
 }

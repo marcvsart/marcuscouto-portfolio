@@ -10,6 +10,10 @@ Portfólio unificado de Marcus Couto (marcvs). Site estático no GitHub Pages: s
 /projetos/prensa-automata/      projetos/prensa-automata/index.html
 /projetos/zombiebasilisk/       projetos/zombiebasilisk/index.html
 /projetos/uol/                  projetos/uol/index.html
+/projetos/elogroup/             projetos/elogroup/index.html
+/projetos/yahoo-finance/        projetos/yahoo-finance/index.html
+/projetos/videocamp/            projetos/videocamp/index.html
+/projetos/jornalismo-e-midia/   projetos/jornalismo-e-midia/index.html  (trajetória anterior; link discreto no fim de Projetos)
 /sistema/                       sistema/index.html  (arquitetura de automação criativa + consultoria e workshops)
 /404.html                       página de erro (o GitHub Pages serve para qualquer endereço inexistente)
 
@@ -19,7 +23,7 @@ sistemas/*/, fale-comigo/, poetica/*/, arte/*/, en/art/*/
                                                   redirecionamentos dos endereços anteriores (os de arte levam ao marcvs.art)
 
 Versão em inglês (mesma estrutura, em /en/):
-/en/  /en/research/  /en/projects/{prensa-automata,zombiebasilisk,uol}/  /en/system/
+/en/  /en/research/  /en/projects/{prensa-automata,zombiebasilisk,uol,elogroup,yahoo-finance,videocamp,journalism-and-media}/  /en/system/
 
 assets/css/tokens.css     tokens (cores, fontes, medidas): o único lugar com valores de cor
 assets/css/base.css       estrutura, textura, cabeçalho, rodapé, lombada, glitch dosado
@@ -40,6 +44,8 @@ assets/img/pinturas/      pinturas em WebP e AVIF (os originais ficam fora do si
 assets/img/og/            imagens de compartilhamento 1200×630, uma por página principal
 
 data/numeros.json         números das páginas
+
+assets/img/retrato.webp   retrato em pixel da home (azul fantasma sobre fundo transparente, 600×600; .png de reserva)
 data/filmes.txt           estante de filmes
 data/pinturas.txt         pinturas
 data/som.json             discografia
@@ -91,7 +97,7 @@ Cada sigilo tem uma animação lenta de brilho (4,8s por ciclo). O atraso de cad
 Com "reduzir movimento" ativado, a animação fica desligada.
 
 A lista da home segue os estratos do marcvs.art:
-- o caminho e a profundidade acima de cada título (`/pesquisa · −12m`);
+- o caminho e a profundidade acima de cada título, na ordem Projetos (−12m), Pesquisa (−38m), Arte (−67m) e Sistema (−190m); o menu segue a mesma ordem;
 - a textura do Workbench, que muda a cada camada (eixos `BLED` e `SCAN`, classes `.l0` a `.l3`);
 - o hover em vídeo invertido;
 - o `> ` antes do subtítulo e os itens como árvore (`├─`, `└─`).
@@ -116,7 +122,7 @@ A lista da home segue os estratos do marcvs.art:
 
 ### data/numeros.json
 
-Cada número é um objeto com `valor` (número puro), `fonte` e `data` (`AAAA-MM` ou `AAAA-MM-DD`). `aproximado: true` mostra `~` antes do valor. As páginas formatam sozinhas: 18500000 vira "18,5 milhões" (ou "18,5 mi" com `data-formato="curto"`), e 51000 vira "51 mil".
+Cada número é um objeto com `valor` (número puro), `fonte` e `data` (`AAAA-MM` ou `AAAA-MM-DD`). `aproximado: true` mostra `~` antes do valor, `mais: true` mostra `+` depois ("10 mi+") e `moeda: "US$"` põe a moeda na frente ("US$ 400 mil" / "US$400K"). As páginas formatam sozinhas: 18500000 vira "18,5 milhões" (ou "18,5 mi" com `data-formato="curto"`), e 51000 vira "51 mil".
 
 A linha "atualizado em" usa a data mais recente do grupo. `AAAA-MM-DD` aparece como `DD/MM/AAAA`; `AAAA-MM` aparece como `mês/AAAA`.
 
