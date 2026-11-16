@@ -1,5 +1,6 @@
 // Preenche os números a partir de data/numeros.json.
 //   <span data-numero="grupo.chave" data-formato="extenso|curto|inteiro"></span>
+//   data-prosa: para números dentro de frases (sem "~", que o texto troca por "cerca de"; em inglês, 430,000 em vez de 430K)
 //   <p data-atualizado="grupo"></p>  → "atualizado em DD/MM/AAAA" (ou mês/ano)
 //   data-rotulo="" troca o prefixo "atualizado em " (ex.: só a data)
 // Em páginas com lang="en": 18.5 million · 4.5M · 51K · "updated Sep 2026".
@@ -17,16 +18,16 @@
   }
 
   // extenso: 18,5 milhões · 51 mil   curto: 4,5 mi · 51 mil   inteiro: 16
-  function formatar(item, formato) {
+  function formatar(item, formato, prosa) {
     const v = Number(item.valor);
     if (!Number.isFinite(v)) return '—';
     let texto;
-    if (formato === 'inteiro' || Math.abs(v) < 1000) texto = v.toLocaleString(LOCALE);
+    if (formato === 'inteiro' || Math.abs(v) < 1000 || (prosa && EN && Math.abs(v) < 1e6)) texto = v.toLocaleString(LOCALE);
     else if (EN) texto = Math.abs(v) >= 1e6 ? decimal(v / 1e6) + (formato === 'curto' ? 'M' : ' million') : decimal(v / 1e3) + 'K';
     else if (Math.abs(v) >= 1e6) texto = decimal(v / 1e6) + (formato === 'curto' ? ' mi' : (v / 1e6 >= 2 ? ' milhões' : ' milhão'));
     else texto = decimal(v / 1e3) + ' mil';
     if (item.moeda) texto = item.moeda + (EN ? '' : ' ') + texto;
-    return (item.aproximado ? '~' : '') + texto + (item.mais ? '+' : '');
+    return (item.aproximado && !prosa ? '~' : '') + texto + (item.mais ? '+' : '');
   }
 
   // "2026-09" → "set/2026"; "2026-09-06" → "06/09/2026"
@@ -47,7 +48,7 @@
     .then(dados => {
       document.querySelectorAll('[data-numero]').forEach(node => {
         const item = buscar(dados, node.dataset.numero);
-        if (item) node.textContent = formatar(item, node.dataset.formato);
+        if (item) node.textContent = formatar(item, node.dataset.formato, node.dataset.prosa !== undefined);
       });
       document.querySelectorAll('[data-atualizado]').forEach(node => {
         const grupo = dados[node.dataset.atualizado] || {};
