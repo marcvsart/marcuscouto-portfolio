@@ -3,6 +3,7 @@
 //   <p data-atualizado="grupo"></p>  → "atualizado em DD/MM/AAAA" (ou mês/ano)
 //   data-rotulo="" troca o prefixo "atualizado em " (ex.: só a data)
 // Em páginas com lang="en": 18.5 million · 4.5M · 51K · "updated Sep 2026".
+// No JSON: aproximado → "~" antes; mais → "+" depois; moeda: "US$" → "US$ 400 mil" / "US$400K".
 (function () {
   'use strict';
   const EN = document.documentElement.lang === 'en';
@@ -24,7 +25,8 @@
     else if (EN) texto = Math.abs(v) >= 1e6 ? decimal(v / 1e6) + (formato === 'curto' ? 'M' : ' million') : decimal(v / 1e3) + 'K';
     else if (Math.abs(v) >= 1e6) texto = decimal(v / 1e6) + (formato === 'curto' ? ' mi' : (v / 1e6 >= 2 ? ' milhões' : ' milhão'));
     else texto = decimal(v / 1e3) + ' mil';
-    return (item.aproximado ? '~' : '') + texto;
+    if (item.moeda) texto = item.moeda + (EN ? '' : ' ') + texto;
+    return (item.aproximado ? '~' : '') + texto + (item.mais ? '+' : '');
   }
 
   // "2026-09" → "set/2026"; "2026-09-06" → "06/09/2026"
