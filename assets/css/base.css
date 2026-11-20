@@ -90,7 +90,12 @@ main { display: block; }
 /* ---- home ---- */
 .intro { padding: var(--space-6) 0 var(--space-5); display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 26vw, 300px); gap: var(--space-5); align-items: start; }
 .intro-text { min-width: 0; }
-.portrait { display: block; width: 100%; height: auto; margin-top: 6px; image-rendering: pixelated; opacity: .9; }
+.portrait-fig { margin: 6px 0 0; min-width: 0; }
+.portrait { display: block; width: 100%; height: auto; aspect-ratio: 1; image-rendering: pixelated; opacity: .9; cursor: crosshair; }
+.portrait-fig figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px var(--space-2); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: var(--fs-xs); letter-spacing: .12em; }
+.portrait-fig .cap::before { content: "> "; color: var(--accent); }
+.intro-lead { animation: lead-in .9s .5s both ease-out; }
+@keyframes lead-in { from { opacity: 0; transform: translateY(8px); } }
 .more { margin: var(--space-2) 0 0; font-size: var(--fs-s); }
 .more a { color: var(--ink-soft); text-decoration: none; }
 .more a:hover { color: var(--accent); }
@@ -236,7 +241,7 @@ a.film-frame:hover .film-watch { background: var(--accent); color: var(--bg); }
   .site-nav { margin-left: 0; width: 100%; order: 3; gap: 2px var(--space-3); }
   .lang { margin-left: auto; }
   .intro { grid-template-columns: 1fr; gap: var(--space-3); }
-  .portrait { order: -1; width: 160px; margin-top: 0; }
+  .portrait-fig { order: -1; width: 220px; margin-top: 0; }
   .home-section { grid-template-columns: 56px minmax(0, 1fr); gap: var(--space-2); }
   .home-section .sigil { width: 52px; height: 52px; margin-top: 2px; }
   .lombada > summary { grid-template-columns: 32px minmax(0, 1fr) 28px; }
