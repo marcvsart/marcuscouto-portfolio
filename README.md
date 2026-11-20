@@ -38,6 +38,7 @@ assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
 assets/js/arte.js         glitch pleno e scramble (Arte e Som)
 assets/js/contato.js      envio do formulário de contato (Web3Forms)
+assets/js/abertura.js     abertura da home: o título se decifra e o retrato se desfaz numa grade de coordenadas e se refaz (ao carregar, a cada 9–15s e no hover)
 
 assets/img/filmes/        frames da estante
 assets/img/pinturas/      pinturas em WebP e AVIF (os originais ficam fora do site)
@@ -45,7 +46,7 @@ assets/img/og/            imagens de compartilhamento 1200×630, uma por página
 
 data/numeros.json         números das páginas
 
-assets/img/retrato.webp   retrato em pixel da home (azul fantasma sobre fundo transparente, 600×600; .png de reserva)
+assets/img/retrato.png    retrato em pixel da home (azul fantasma sobre fundo transparente, 600×600)
 data/filmes.txt           estante de filmes
 data/pinturas.txt         pinturas
 data/som.json             discografia
