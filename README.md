@@ -38,7 +38,7 @@ assets/js/pinturas.js     bolas e visualizador das pinturas
 assets/js/som.js          discografia
 assets/js/arte.js         glitch pleno e scramble (Arte e Som)
 assets/js/contato.js      envio do formulário de contato (Web3Forms)
-assets/js/abertura.js     abertura da home: o título se decifra e o retrato se desfaz numa grade de coordenadas e se refaz (ao carregar, a cada 9–15s e no hover)
+assets/js/abertura.js     abertura da home: o título se decifra e ganha um glitch leve a cada 5–11s; o retrato se decompõe numa grade de coordenadas e se recompõe, em ciclo contínuo
 
 assets/img/filmes/        frames da estante
 assets/img/pinturas/      pinturas em WebP e AVIF (os originais ficam fora do site)
