@@ -1,5 +1,5 @@
-// Abertura da home: o retrato se desfaz numa grade de coordenadas e se refaz
-// (o cartógrafo), e o título se decifra ao carregar.
+// Abertura da home: o retrato se decompõe numa grade de coordenadas e se recompõe,
+// sem parar, e o título se decifra ao carregar e depois ganha um glitch leve.
 // Com "reduzir movimento" ativado, nada disso roda: ficam a imagem e o texto parados.
 (function () {
   'use strict';
@@ -24,7 +24,13 @@
         }
       }
       title.textContent = out;
-      if (p < 1) requestAnimationFrame(step); else title.textContent = finalText;
+      if (p < 1) return requestAnimationFrame(step);
+      title.textContent = finalText;
+      title.setAttribute('data-text', finalText);
+      // Depois de decifrado, um glitch leve de tempos em tempos (o mesmo da marca).
+      (function again() {
+        setTimeout(function () { if (window.siteGlitch && !document.hidden) window.siteGlitch(title); again(); }, (5 + Math.random() * 6) * 1000);
+      })();
     })(performance.now());
   }
 
@@ -97,7 +103,7 @@
       for (q = 0; q < parts.length; q++) parts[q].d /= max;
     }
 
-    var busy = false, visible = true;
+    var visible = true;
     function run(from, to, ms, done) {
       var t0 = performance.now();
       (function frame(now) {
@@ -106,22 +112,21 @@
         if (t < 1) requestAnimationFrame(frame); else if (done) done();
       })(t0);
     }
-    function cycle() { // rosto → grade → rosto
-      if (busy || !visible || document.hidden) return;
-      busy = true; wave();
-      run(0, 1, 1700, function () {
-        setTimeout(function () { wave(); run(1, 0, 1900, function () { busy = false; }); }, 1300);
+    // Vai e volta sem parar: rosto → grade → rosto, com uma pausa curta em cada ponta.
+    // Fora da tela ou com a aba em segundo plano, espera.
+    function loop() {
+      if (!visible || document.hidden) return setTimeout(loop, 800);
+      wave();
+      run(0, 1, 1900, function () {
+        setTimeout(function () { wave(); run(1, 0, 2100, function () { setTimeout(loop, 2400); }); }, 900);
       });
     }
-    function schedule() { setTimeout(function () { cycle(); schedule(); }, (9 + Math.random() * 6) * 1000); }
 
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(canvas);
-    canvas.addEventListener('mouseenter', cycle);
-    canvas.addEventListener('click', cycle);
 
     // Ao carregar, o rosto se monta a partir da grade.
-    busy = true; wave();
-    run(1, 0, 2200, function () { busy = false; schedule(); });
+    wave();
+    run(1, 0, 2200, function () { setTimeout(loop, 2400); });
   }
 
   if (img.complete && img.naturalWidth) start(); else img.addEventListener('load', start, { once: true });
